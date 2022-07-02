@@ -19,9 +19,7 @@ export default {
     }
   },
   mounted() {
-   
         this.getEvents();
-
         document.title = 'About';
 },
 methods: {
