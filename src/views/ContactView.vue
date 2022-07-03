@@ -21,7 +21,7 @@
           ></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">SAVE CHANGE</button>
+        <button type="submit" class="btn btn-primary">SEND</button>
       </form>
       <p class="text-center or">OR</p>
       <p class="text-center">Reach out on:</p>
