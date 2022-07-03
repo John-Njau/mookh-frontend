@@ -37,7 +37,7 @@
           </button>
         </div>
 
-        <div class="col-lg-4 mb-5 mb-lg-0 position-relative">
+        <div class="col-lg-4 mb-3 mb-lg-0 position-relative">
           <div class="card" id="login-card" style="">
             <div class="card-body py-5 px-md-5">
               <div class="brand">
@@ -56,9 +56,9 @@
               <br />
               <div class="buyer text-white">
                 <h4>
-                  <strong><i class="fa-solid fa-user"></i> Buyer Log In</strong>
+                  <strong>Reset Password</strong>
                 </h4>
-                <p>Don't have an account? <a href="/signup">sign up</a></p>
+                <p>Enter your registered email. We'll send you password reset instructions.</p>
               </div>
               <br /><br />
               <form @submit.prevent="SubmitForm">
@@ -67,32 +67,14 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                   <label class="form-label text-white" for="form3Example3">
-                    Email Address
+                    Email
                   </label>
                   <input
                     type="email"
-                    id="form3Example3"
                     class="form-control"
                     v-model="email"
-                    placeholder="email"
+                    placeholder="xyz@gmail.com"
                   />
-                </div>
-
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                  <label class="form-label text-white" for="form3Example4"
-                    >Password</label
-                  >
-
-                  <input
-                    type="password"
-                    class="form-control"
-                    v-model="password"
-                    placeholder="password"
-                  />
-                </div>
-                <div class="notification text-danger" v-if="errors.length">
-                  <p v-for="error in errors" :key="error">{{ error }}</p>
                 </div>
                 <!-- Submit button -->
                 <div class="form-outline mb-4 form-group" id="login">
@@ -100,21 +82,15 @@
                     class="btn btn-block btn-sm outline-2"
                     style="background-color: #f8fa29; width: 100%; height: 40px"
                   >
-                    LOG IN
+                    RESET MY PASSWORD
                   </button>
                 </div>
                 <!-- Checkbox -->
-                <div class="form-check mb-5 p-0">
-                  <label class="form-check-label" for="form2Example33">
-                    <a href="/reset-password" class="text-secondary">
-                      Forgot your password?
-                    </a>
-                  </label>
-                </div>
                 <div class="text-white p-0">
-                  By login in to your account, you agree to our
-                  <a href="" class="text-white">Terms and Conditions</a>.
+                  Back to
+                  <a href="/login" class="text-secondary"> Login </a>
                 </div>
+               
               </form>
             </div>
           </div>
@@ -151,7 +127,7 @@ export default {
       };
 
       await axios
-        .post("/api/v1/token/login", formData)
+        .post("/api/v1/token/login/", formData)
         .then((response) => {
           const token = response.data.auth_token;
 
@@ -223,6 +199,38 @@ export default {
       transparent 100%
     ); */
 }
+/* 
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px; */
+/* background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
 
+#radius-shape-2 {
+  border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
+  bottom: -60px;
+  right: -110px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(#44006b, #ad1fff);
+  overflow: hidden;
+}
 
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+} */
+
+@media only screen and (max-width: 991px) {
+  #login-card {
+    margin-top: 0;
+  }
+
+  #digital-content {
+    display: none;
+  }
+}
 </style>
