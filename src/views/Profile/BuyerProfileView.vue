@@ -200,7 +200,7 @@ export default {
   }
   .btn {
     background-color: #f8fa29 !important;
-    color: white;
+    color: black;
     font-weight: 900;
     margin-left: 57vw;
     width: 10vw;

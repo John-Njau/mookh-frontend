@@ -212,7 +212,7 @@ form {
   border-radius: 5px;
   padding: 2vw;
   .form-group {
-    padding-bottom: 1.2vw;
+    padding-bottom: 1.1vw;
   }
 
   label {
@@ -223,6 +223,13 @@ form {
     width: 100% !important;
     background-color: #f8fa29;
     color: black;
+    border: none;
+    height: 3.4vw;
+    font-weight: bold;
+    :hover {
+      background-color: #f6f6f6 !important;
+      color: #f8fa29 !important;
+    }
   }
 }
 </style>
