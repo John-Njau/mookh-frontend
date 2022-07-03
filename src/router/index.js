@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UpdateBuyerView from '../views/Profile/UpdateBuyerView.vue'
 import BuyerProfile from '../views/Profile/BuyerProfileView.vue'
+import Contact from '../views/ContactView.vue'
+
 
 
 Vue.use(VueRouter)
@@ -31,6 +33,11 @@ const routes = [{
         name: 'updatebuyerprofile',
         component: UpdateBuyerView,
 
+    },
+    {
+        path: '/contact',
+        name: 'contact',
+        component: Contact,
     }
 ]
 

@@ -143,7 +143,7 @@ export default {
 <style lang='scss'>
 .side-nav {
   background-color: #31383e;
-  height: 100vh;
+  height: 83vh;
   padding-top: 3vw;
   display: flex;
   flex-direction: column;

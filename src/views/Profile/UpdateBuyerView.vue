@@ -210,7 +210,7 @@ form {
   margin: 0 auto;
   box-shadow: 1px 1px 5px grey;
   border-radius: 5px;
-  padding: 2vw;
+  padding: 1vw 2vw;
   .form-group {
     padding-bottom: 1.1vw;
   }
