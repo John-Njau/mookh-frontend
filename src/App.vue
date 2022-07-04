@@ -4,6 +4,9 @@
     <SearchBar />
     <BodyCont />
     <FeaturedStaff />
+     <FeaturedStafff />
+    <Footer />
+   
 
     <!-- <nav>
         <router-link to="/">Home</router-link> |
@@ -19,7 +22,8 @@ import SearchBar from "./components/SearchBar.vue";
 import BodyCont from "./components/BodyCont.vue";
 import HomeView from "./views/HomeView.vue";
 import FeaturedStaff from "./components/FeaturedStaff.vue";
-
+import FeaturedStafff from "./views/FeaturedStafff.vue";
+import Footer from "./components/FooterBar.vue";
 
 export default {
   name: "App",
@@ -29,13 +33,21 @@ export default {
     BodyCont,
     HomeView,
     FeaturedStaff,
+    FeaturedStafff,
+    Footer
 
+  },
+    data(){
+    return{
+      tasks: []
+    }
   },
 };
 </script>
 
 
 <style>
+@import'~bootstrap/dist/css/bootstrap.css';
 
 
 #app {
@@ -46,7 +58,7 @@ export default {
   color: #2c3e50;
 }
 
-body {
+template {
   background-color: #f8f8ff;
 }
 @import'~bootstrap/dist/css/bootstrap.css';

@@ -8,9 +8,12 @@
       aria-describedby="search-addon" style="height:70px;"
     />
     
-    <!-- <span class="input-group-text border-0" id="search-addon">
+    <!-- <span class="input-group-text border-0" id="search-addon" style="height:70px;" >
       <i class="fas fa-search"></i>
     </span> -->
+
+
+    
   </div>
   
 </template>

@@ -4,12 +4,15 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import 'bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'; 
 import './assets/css/main.css';
+import VueCarousel from 'vue-carousel';
+
+Vue.use(VueCarousel);
 
 
 
-
+// set a prototype for http
+Vue.prototype.$http = axios;
 
 
 

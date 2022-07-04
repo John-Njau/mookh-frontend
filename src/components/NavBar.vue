@@ -42,11 +42,11 @@
             id="chk"
             style="margin-left: 650px"
           />
-          <label class="label" for="chk">
+          <!-- <label class="label" for="chk">
             <i class="fas fa-moon" style="color: black; padding-left: 2px"></i>
             <i class="fas fa-sun" style="color: black; padding-right: 3px"></i>
             <div class="ball"></div>
-          </label>
+          </label> -->
 
           
 
@@ -58,18 +58,17 @@
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
+                aria-expanded="false" style="color:black"
                 >LEARN MORE
               </a>
+   
               <ul
                 class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink"
+                aria-labelledby="navbarDropdownMenuLink" style="width:300px;height:150px;padding-top:0px;padding-left:10px;padding-right:10px;padding-bottom:10px;"
               >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
+               <i class="fa-regular fa-chart-line-up"></i>
+               <p style="font-size:20px">Start selling with us</p>
+               <p style="font-size:15px">Begin your e-commerce journey with our simple to use, feature-packed dashboard and marketplace.</p>
               </ul>
             </li>
             <li class="nav-item dropdown" style="margin-left: 40px">
@@ -79,18 +78,16 @@
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false"
+                aria-expanded="false" style="color:black"
                 >LOGIN
               </a>
               <ul
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
+                <li><a class="dropdown-item" href="#">Buyer Log In</a></li>
+                <li><a class="dropdown-item" href="#">Seller Log In</a></li>
+                
               </ul>
             </li>
           </ul>
@@ -98,6 +95,9 @@
         </div>
       </div>
     </nav>
+
+
+    
 
 
     
