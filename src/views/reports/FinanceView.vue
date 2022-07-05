@@ -1,66 +1,5 @@
 <template>
   <div class="" id="wrapper">
-    <!-- Sidebar-->
-    <div class="border-end bg-white" id="sidebar-wrapper">
-      <div class="sidebar-heading border-bottom bg-light">QUICK ACCESS</div>
-      <div class="list-group list-group-flush">
-        <a
-          class="list-group-item list-group-item-action list-group-item-dark p-3"
-          href="#!"
-          >STORES</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >ALL STORES</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >EVENTS</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >LIVESTREAM</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >DIGITAL CONTENT</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >USERS</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >REPORTS</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >ORDERS</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >FINANCE</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >ACCOUNT</a
-        >
-        <a
-          class="list-group-item list-group-item-action list-group-item-light p-3"
-          href="#!"
-          >PROFILE</a
-        >
-      </div>
-    </div>
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
       <!-- Top navigation-->
@@ -138,54 +77,97 @@
           <button type="button" class="btn btn-light">RELOAD</button>
         </nav>
       </div>
-      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">NET EARNINGS</button>
+      <div class="card-group">
+        <div class="card">
+          
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+            <p class="card-text text-center">
+              Net Earnings
+              0.00
+            </p>
+            <p class="card-text">
+              <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+            </p>
+          </div>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">
-            AMOUNT WITHDRAWN
-          </button>
+        <div class="card">
+          
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+            <p class="card-text text-center">
+              Amount Withdrawn
+              0.00
+            </p>
+            <p class="card-text">
+              <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+            </p>
+          </div>
         </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default">CURRENT BALANCE</button>
+        <div class="card">
+          
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5> -->
+            <p class="card-text">
+              Current Balance
+              0.00
+            </p>
+            <p class="card-text">
+              <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
+            </p>
+          </div>
         </div>
       </div>
 
       <div class="table-responsive-xl">
         <p>Earnings Breakdown</p>
-        <table class="table table-borderless">
-          <thead class="thead-light">
+        <table class="table">
+          <thead>
             <tr>
-              <!-- <th scope="col">#</th> -->
-              <th scope="col ">NAME</th>
-              <th scope="col">CURRENCY</th>
-              <th scope="col">TOTAL EARNINGS</th>
-              <th scope="col">NET EARNINGS</th>
-              <th scope="col">COMMISSION</th>
-              <th scope="col">TRANSFERRED</th>
-              <th scope="col">TRANSFERABLE</th>
-              <th scope="col">ACTION</th>
+              <th scope="col"></th>
+              <th scope="col">Name</th>
+              <th scope="col">Currency</th>
+              <th scope="col">Total Earnings</th>
+              <th scope="col">Net Earnings</th>
+              <th scope="col">Commission</th>
+              <th scope="col">Transferred</th>
+              <th scope="col">Transferrable</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>
 
-    <!-- Remove the container if you want to extend the Footer to full width. -->
-    <div class="container my-5">
-      <footer class="text-center text-white" style="background-color: #f1f1f1">
-        <!-- Copyright -->
-        <div
-          class="text-center text-dark p-3"
-          style="background-color: rgba(0, 0, 0, 0.2)"
-        >
-          © 2018 MOOKH ALL RIGHTS RESERVED
-        </div>
-        <!-- Copyright -->
-      </footer>
-    </div>
-    <!-- End of .container -->
+    <!-- Footer -->
+    <footer class="page-footer font-small blue fixed-bottom">
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">
+        © 2018 MOOKH. ALL RIGHTS RESERVED
+      </div>
+      <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
   </div>
 </template>
 
