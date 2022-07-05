@@ -7,6 +7,9 @@
       <router-link to="/contact">Contact</router-link>|
       <router-link to="/login">Login</router-link> |
     </nav>
+    <div :style="{ 'margin-left': sidebarWidth }">
+      <Sidebar />
+    </div>
     <router-view />
   </div>
 </template>
@@ -28,8 +31,13 @@
 </style>
 <script>
 import axios from "axios";
-
+import Sidebar from "@/components/sidebar/Sidebar";
+import { sidebarWidth } from "@/components/sidebar/state";
 export default {
+  components: { Sidebar, Navigation },
+  setup() {
+    return { sidebarWidth };
+  },
   data() {
     return {};
   },
