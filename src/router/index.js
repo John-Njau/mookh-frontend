@@ -1,25 +1,14 @@
-import Vue from 'vue'
+import Vue from "vue";
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import UpdateBuyerView from '../views/Profile/UpdateBuyerView.vue'
 import BuyerProfile from '../views/Profile/BuyerProfileView.vue'
 import Contact from '../views/ContactView.vue'
-
-
-import Vue from "vue";
-import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/Auth/LoginView.vue";
 import SignUpView from "../views/Auth/SignUpView.vue";
 
+Vue.use(VueRouter)
 
-const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
-})
-
-export default router
 const routes = [{
         path: "/",
         name: "home",
@@ -49,7 +38,7 @@ const routes = [{
         name: "reset-password",
         component: () =>
             import ("../views/Auth/ResetView.vue"),
-    } {
+    }, {
         path: '/buyerprofile',
         name: 'buyerprofile',
         component: BuyerProfile,
@@ -87,5 +76,4 @@ router.beforeEach((to, from, next) => {
         next();
     }
 });
-
-export default router;
+export default router
