@@ -16,6 +16,8 @@ Vue.prototype.$http = axios;
 
 
 
+import 'bootstrap'
+
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
