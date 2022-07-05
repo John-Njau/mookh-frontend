@@ -10,51 +10,16 @@
     <div :style="{ 'margin-left': sidebarWidth }">
       <Sidebar />
     </div>
-    <NavBar />
-    <SearchBar />
-    <BodyCont />
-    <FeaturedStaff />
-    <FeaturedStafff />
-    <Footer />
-
-    <!-- <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </nav> -->
     <router-view />
   </div>
 </template>
 
-
-
-
-
-
-<style>
-@import "~bootstrap/dist/css/bootstrap.css";
-</style>
 <script>
-import axios from "axios";
-import Sidebar from "@/components/sidebar/Sidebar";
-import { sidebarWidth } from "@/components/sidebar/state";
 
-import NavBar from "./components/NavBar.vue";
-import SearchBar from "./components/SearchBar.vue";
-import BodyCont from "./components/BodyCont.vue";
-import FeaturedStaff from "./components/FeaturedStaff.vue";
-import FeaturedStafff from "./views/FeaturedStafff.vue";
-import Footer from "./components/FooterBar.vue";
 export default {
   name: "App",
   components: {
-    NavBar,
-    SearchBar,
-    BodyCont,
-    FeaturedStaff,
-    FeaturedStafff,
-    Footer,
-    Sidebar,
-    Navigation,
+    
   },
 
   setup() {
@@ -80,3 +45,6 @@ export default {
   methods: {},
 };
 </script>
+<style>
+@import "~bootstrap/dist/css/bootstrap.css";
+</style>

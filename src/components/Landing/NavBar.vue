@@ -154,7 +154,6 @@
 export default {
   name: "NavBar",
   components: {
-    popper: Popper,
   },
 };
 </script>
