@@ -183,9 +183,9 @@ export default {
         // fetch tasks
         const response = await this.$http.get(
           "/api/events/",{
-           headers: {
+           profile_pic: {
             'Content-Type': 'image/jpeg',
-            Authorization: `Token ${localStorage.getItem("token")}`,
+            
           },
           }
         );
