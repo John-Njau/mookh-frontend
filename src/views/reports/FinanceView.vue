@@ -3,7 +3,7 @@
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
       <!-- Top navigation-->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31383E">
         <a class="navbar-brand" href="#"></a>
         <button
           class="navbar-toggler"
@@ -180,4 +180,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+
+.card-group{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+
+
+
+</style>

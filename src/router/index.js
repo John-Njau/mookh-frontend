@@ -12,7 +12,10 @@ import storesView from "../views/events/storesView";
 import eventsView from "../views/events/eventsView";
 import newStoreView from "../views/events/newStoreView";
 import newEventView from "../views/events/newEventView";
-import FinanceView from "../views/reports/FinanceView"
+import FinanceView from "../views/reports/FinanceView";
+import OrderView from "../views/reports/OrderView"
+
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -23,11 +26,19 @@ const routes = [
   },
  
 
+  
   {
     path:'/Finance',
     name:'Finance',
     component: FinanceView
     
+  },
+
+  {
+    path:'/Order',
+    name:'Order',
+    component: OrderView
+
   },
 
 
