@@ -4,6 +4,11 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
+import '@fortawesome/fontawesome-free/js/all'
+import 'bootstrap'
+
+
+
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'http://127.0.0.1:8000'
