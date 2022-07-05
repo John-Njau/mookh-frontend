@@ -10,36 +10,60 @@
     <div :style="{ 'margin-left': sidebarWidth }">
       <Sidebar />
     </div>
+    <NavBar />
+    <SearchBar />
+    <BodyCont />
+    <FeaturedStaff />
+    <FeaturedStafff />
+    <Footer />
+
+    <!-- <nav>
+        <router-link to="/">Home</router-link> |
+        <router-link to="/about">About</router-link>
+      </nav> -->
     <router-view />
   </div>
 </template>
 
 
+
+
+
+
 <style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
 @import "~bootstrap/dist/css/bootstrap.css";
-
-@media only screen and (max-width: 991px) {
-  #login-card {
-    margin-top: 0;
-  }
-
-  #digital-content {
-    display: none;
-  }
-}
 </style>
 <script>
 import axios from "axios";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { sidebarWidth } from "@/components/sidebar/state";
+
+import NavBar from "./components/NavBar.vue";
+import SearchBar from "./components/SearchBar.vue";
+import BodyCont from "./components/BodyCont.vue";
+import FeaturedStaff from "./components/FeaturedStaff.vue";
+import FeaturedStafff from "./views/FeaturedStafff.vue";
+import Footer from "./components/FooterBar.vue";
 export default {
-  components: { Sidebar, Navigation },
+  name: "App",
+  components: {
+    NavBar,
+    SearchBar,
+    BodyCont,
+    FeaturedStaff,
+    FeaturedStafff,
+    Footer,
+    Sidebar,
+    Navigation,
+  },
+
   setup() {
     return { sidebarWidth };
   },
   data() {
-    return {};
+    return {
+      tasks: [],
+    };
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
