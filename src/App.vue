@@ -5,15 +5,14 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
     </nav>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons');
-@import'~bootstrap/dist/css/bootstrap.css';
-
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
+@import "~bootstrap/dist/css/bootstrap.css";
 
 @media only screen and (max-width: 991px) {
   #login-card {
@@ -24,16 +23,13 @@
     display: none;
   }
 }
-
 </style>
 <script>
 import axios from "axios";
 
 export default {
   data() {
-    return {
-     
-    };
+    return {};
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
@@ -42,19 +38,11 @@ export default {
 
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Token " + token;
-
-    }
-    else {
+    } else {
       axios.defaults.headers.common["Authorization"] = "";
-      
     }
   },
-  mounted() {
-  },
-  methods: {
-    
-    
-  },
+  mounted() {},
+  methods: {},
 };
-
 </script>
