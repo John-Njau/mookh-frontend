@@ -122,7 +122,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="path + '/api/profilepic/' + event.profile_pic"
+                      :src="'http://127.0.0.1:8000' + event.profile_pic"
                       alt="Card image cap"
                     />
                   </div>
@@ -182,7 +182,12 @@ export default {
       try {
         // fetch tasks
         const response = await this.$http.get(
-          "http://localhost:8000/api/events/"
+          "/api/events/",{
+           profile_pic: {
+            'Content-Type': 'image/jpeg',
+            
+          },
+          }
         );
         // set the data returned as tasks
         this.events = response.data;

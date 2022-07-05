@@ -7,14 +7,29 @@
       <router-link to="/contact">Contact</router-link>|
       <router-link to="/login">Login</router-link> |
     </nav>
-    <div :style="{ 'margin-left': sidebarWidth }">
-      <Sidebar />
-    </div>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons');
+@import'~bootstrap/dist/css/bootstrap.css';
+
+
+@media only screen and (max-width: 991px) {
+  #login-card {
+    margin-top: 0;
+  }
+
+  #digital-content {
+    display: none;
+  }
+}
+
+</style>
 <script>
+import axios from "axios";
 
 export default {
   name: "App",
@@ -45,6 +60,3 @@ export default {
   methods: {},
 };
 </script>
-<style>
-@import "~bootstrap/dist/css/bootstrap.css";
-</style>

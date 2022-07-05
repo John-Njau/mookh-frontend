@@ -15,8 +15,7 @@ import newEventView from "../views/events/newEventView";
 
 Vue.use(VueRouter);
 
-const routes = [
-  {
+const routes = [{
     path: "/",
     name: "home",
     component: HomeView,
@@ -28,7 +27,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import( /* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
   {
     path: "/login",
@@ -99,7 +98,9 @@ router.beforeEach((to, from, next) => {
     next({
       name: "login",
       path: "/login",
-      query: { to: to.path },
+      query: {
+        to: to.path
+      },
     });
   } else {
     next();
