@@ -10,9 +10,9 @@
 import axios from "axios";
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     logout() {

@@ -48,8 +48,6 @@
             <div class="ball"></div>
           </label> -->
 
-          
-
           <ul class="navbar-nav justify-content-end" style="margin-left: 0px">
             <li class="nav-item dropdown" style="margin-left: 35px">
               <a
@@ -58,17 +56,29 @@
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false" style="color:black"
+                aria-expanded="false"
+                style="color: black"
                 >LEARN MORE
               </a>
-   
+
               <ul
                 class="dropdown-menu"
-                aria-labelledby="navbarDropdownMenuLink" style="width:300px;height:150px;padding-top:0px;padding-left:10px;padding-right:10px;padding-bottom:10px;"
+                aria-labelledby="navbarDropdownMenuLink"
+                style="
+                  width: 300px;
+                  height: 150px;
+                  padding-top: 0px;
+                  padding-left: 10px;
+                  padding-right: 10px;
+                  padding-bottom: 10px;
+                "
               >
-               <i class="fa-regular fa-chart-line-up"></i>
-               <p style="font-size:20px">Start selling with us</p>
-               <p style="font-size:15px">Begin your e-commerce journey with our simple to use, feature-packed dashboard and marketplace.</p>
+                <i class="fa-regular fa-chart-line-up"></i>
+                <p style="font-size: 20px">Start selling with us</p>
+                <p style="font-size: 15px">
+                  Begin your e-commerce journey with our simple to use,
+                  feature-packed dashboard and marketplace.
+                </p>
               </ul>
             </li>
             <li class="nav-item dropdown" style="margin-left: 40px">
@@ -78,7 +88,8 @@
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-bs-toggle="dropdown"
-                aria-expanded="false" style="color:black"
+                aria-expanded="false"
+                style="color: black"
                 >LOGIN
               </a>
               <ul
@@ -87,7 +98,6 @@
               >
                 <li><a class="dropdown-item" href="#">Buyer Log In</a></li>
                 <li><a class="dropdown-item" href="#">Seller Log In</a></li>
-                
               </ul>
             </li>
           </ul>
@@ -95,12 +105,6 @@
         </div>
       </div>
     </nav>
-
-
-    
-
-
-    
   </div>
 </template>
 
@@ -150,7 +154,6 @@
 export default {
   name: "NavBar",
   components: {
-    popper: Popper,
   },
 };
 </script>

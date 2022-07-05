@@ -38,7 +38,7 @@
             </div>
 
             <div class="col">
-              <button type="button" class="btn" style="margin-top:28px">
+              <button type="button" class="btn" style="margin-top: 28px">
                 <strong>FILTER</strong>
               </button>
             </div>
@@ -89,24 +89,21 @@
             </div>
 
             <div class="col">
-              <button type="button" class="btn" style="margin-top: 30px"><strong>FILTER</strong></button>
+              <button type="button" class="btn" style="margin-top: 30px">
+                <strong>FILTER</strong>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    
   </div>
 </template>
 
 <script>
 export default {
   name: "FeaturedStaff",
-  components: {
-    popper: Popper,
-  },
-  
+  components: {},
 };
 </script>
 

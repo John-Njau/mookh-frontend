@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <nav>
-      <router-link to="/" class="">Home</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>|
+      <router-link to="/buyerprofile">BProfile</router-link>|
+      <router-link to="/contact">Contact</router-link>|
       <router-link to="/login">Login</router-link> |
     </nav>
     <router-view/>
@@ -30,9 +32,17 @@
 import axios from "axios";
 
 export default {
+  name: "App",
+  components: {
+    
+  },
+
+  setup() {
+    return { sidebarWidth };
+  },
   data() {
     return {
-     
+      tasks: [],
     };
   },
   beforeCreate() {
@@ -42,19 +52,11 @@ export default {
 
     if (token) {
       axios.defaults.headers.common["Authorization"] = "Token " + token;
-
-    }
-    else {
+    } else {
       axios.defaults.headers.common["Authorization"] = "";
-      
     }
   },
-  mounted() {
-  },
-  methods: {
-    
-    
-  },
+  mounted() {},
+  methods: {},
 };
-
 </script>
