@@ -1,11 +1,10 @@
 <template>
   <div>
-  
     <div class="container my-5">
       <div
         id="multi-item-example"
         class="carousel slide carousel-multi-item"
-        data-ride="carousel"
+        data-bs-ride="carousel"
       >
         <!--Slides-->
 
@@ -25,7 +24,7 @@
                       class="small col-1"
                       style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
                     >
-                      <h5 style="font-size: medium"> {{ event.day }}</h5>
+                      <h5 style="font-size: medium">{{ event.day }}</h5>
                       <h3 style="font-weight: 600">{{ event.date }}</h3>
                       <h5 style="font-size: medium">{{ event.month }}</h5>
                     </div>
@@ -123,7 +122,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="path + '/api/profilepic/'+ event.profile_pic"
+                      :src="path + '/api/profilepic/' + event.profile_pic"
                       alt="Card image cap"
                     />
                   </div>
@@ -136,13 +135,9 @@
           <!--Third slide-->
           <div class="carousel-item">
             <div class="row">
-              <div class="col-md-4">
-                
-              </div>
+              <div class="col-md-4"></div>
 
-              <div class="col-md-4 clearfix d-none d-md-block">
-                
-              </div>
+              <div class="col-md-4 clearfix d-none d-md-block"></div>
 
               <div class="col-md-4 clearfix d-none d-md-block">
                 <div class="card mb-2">

@@ -20,10 +20,10 @@
 import NavBar from "./components/NavBar.vue";
 import SearchBar from "./components/SearchBar.vue";
 import BodyCont from "./components/BodyCont.vue";
-import HomeView from "./views/HomeView.vue";
 import FeaturedStaff from "./components/FeaturedStaff.vue";
 import FeaturedStafff from "./views/FeaturedStafff.vue";
 import Footer from "./components/FooterBar.vue";
+
 
 export default {
   name: "App",
@@ -31,10 +31,10 @@ export default {
     NavBar,
     SearchBar,
     BodyCont,
-    HomeView,
     FeaturedStaff,
     FeaturedStafff,
-    Footer
+    Footer,
+  
 
   },
     data(){
