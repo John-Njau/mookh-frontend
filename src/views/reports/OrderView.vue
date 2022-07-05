@@ -4,7 +4,7 @@
 
 
 <template>
-    <div class="d-flex" id="wrapper">
+    <div class="" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
                 <div class="sidebar-heading border-bottom bg-light">Start Bootstrap</div>
