@@ -122,7 +122,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="path + '/api/profilepic/' + event.profile_pic"
+                      :src="'http://127.0.0.1:8000'+event.profile_pic"
                       alt="Card image cap"
                     />
                   </div>
@@ -131,34 +131,6 @@
             </div>
             <!--/.First slide-->
           </div>
-
-          <!--Third slide-->
-          <div class="carousel-item">
-            <div class="row">
-              <div class="col-md-4"></div>
-
-              <div class="col-md-4 clearfix d-none d-md-block"></div>
-
-              <div class="col-md-4 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img
-                    class="card-img-top"
-                    src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
-                    alt="Card image cap"
-                  />
-                  <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a class="btn btn-primary">Button</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--/.Third slide-->
         </div>
         <!--/.Slides-->
       </div>
@@ -168,31 +140,31 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "BodyCont",
 
   data() {
     return {
       // tasks
-      events: [""],
+      events: [],
     };
   },
   methods: {
-    async getData() {
-      try {
-        // fetch tasks
-        const response = await this.$http.get(
-          "http://localhost:8000/api/events/"
-        );
-        // set the data returned as tasks
-        this.events = response.data;
-      } catch (error) {
-        // log the error
-        console.log(error);
-      }
+    getData() {
+      axios
+        .get("/api/events/")
+        .then((response) => {
+          this.events = response.data;
+        })
+        .catch((error) => {
+          // log the error
+          console.log(error);
+        });
     },
   },
-  created() {
+  mounted() {
     // Fetch tasks on page load
     this.getData();
   },

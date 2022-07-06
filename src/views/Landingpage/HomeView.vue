@@ -12,15 +12,12 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import axios from "axios";
-import Sidebar from "@/components/sidebar/Sidebar";
-import { sidebarWidth } from "@/components/sidebar/state";
 
-import NavBar from "@/components/Landing/NavBar.vue";
+import NavBar from "@/components/Landingpage/NavBar.vue";
 import SearchBar from "@/components/SearchBar.vue";
-import BodyCont from "@/components/BodyCont.vue";
-import FeaturedStaff from "@/components/Landing/FeaturedStaff.vue";
-import FeaturedStafff from "@/views/landingpage/FeaturedStafff.vue";
+import BodyCont from "@/components/Landingpage/MainBody.vue";
+import FeaturedStaff from "@/components/Landingpage/FeaturedStaff.vue";
+import FeaturedStafff from "@/components/Landingpage/FeaturedStafff.vue";
 import Footer from "@/components/FooterBar.vue";
 
 export default {
@@ -33,14 +30,15 @@ export default {
     FeaturedStaff,
     FeaturedStafff,
     Footer,
-    Sidebar,
-    Navigation,
 
   },
   data() {
     return {
-        tasks: [],
+       
     }
   },
+  mounted() {
+    document.title = "Home - Mookh";
+  }
 }
 </script>

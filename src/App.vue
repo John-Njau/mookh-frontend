@@ -7,14 +7,11 @@
       <router-link to="/contact">Contact</router-link>|
       <router-link to="/login">Login</router-link> |
     </nav>
-    <div :style="{ 'margin-left': sidebarWidth }">
-      <Sidebar />
-    </div>
     <router-view />
   </div>
 </template>
-
 <script>
+import axios from "axios";
 
 export default {
   name: "App",
@@ -26,9 +23,7 @@ export default {
     return { sidebarWidth };
   },
   data() {
-    return {
-      tasks: [],
-    };
+    return {};
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
@@ -46,5 +41,8 @@ export default {
 };
 </script>
 <style>
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
 @import "~bootstrap/dist/css/bootstrap.css";
+
+
 </style>

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <div class="card" style="width: 18rem" v-for="event in events" :key="event.id">
+    <div
+      class="card"
+      style="width: 18rem"
+      v-for="event in events"
+      :key="event.id"
+    >
       <img src="" class="card-img-top" alt="..." />
       <div class="card-body">
         <div>
@@ -16,7 +21,11 @@
     <div class="card" style="width: 18rem">
       <img src="" class="card-img-top" alt="..." />
       <div class="card-body">
-        <div class="”active-users”" v-for="event in events" :key="event.country">
+        <div
+          class="”active-users”"
+          v-for="event in events"
+          :key="event.country"
+        >
           <div v-if="event.country == 'Uganda' && event.staff_favourite">
             <p style="margin-bottom: 30px">{{ event.event_name }}</p>
             <p>{{ event.day }},{{ event.month }}{{ event.date }}</p>
@@ -25,38 +34,35 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "FeaturedStafff",
   components: {},
   data() {
     return {
       // tasks
-      events: [""],
+      events: [],
     };
   },
   methods: {
-    async getData() {
-      try {
-        // fetch tasks
-        const response = await this.$http.get(
-          "http://localhost:8000/api/events/"
-        );
-        // set the data returned as tasks
-        this.events = response.data;
-      } catch (error) {
-        // log the error
-        console.log(error);
-      }
+    getData() {
+      axios
+        .get("/api/events/")
+        .then((response) => {
+          this.events = response.data;
+        })
+        .catch((error) => {
+          // log the error
+          console.log(error);
+        });
     },
   },
-  created() {
-    // Fetch tasks on page load
+  mounted() {
     this.getData();
   },
 };
