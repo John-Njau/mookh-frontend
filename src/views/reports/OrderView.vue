@@ -1,5 +1,5 @@
 <template>
-  <div class="" id="wrapper">
+  <div class="" id="wrapper"  :style="{ 'margin-left': sidebarWidth }" >
     <!-- Sidebar-->
 
     <!-- Page content wrapper-->
@@ -169,14 +169,20 @@
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
+     <Sidebar />
   </div>
 </template>
 
 <script>
+import Sidebar from "@/components/sidebar/Sidebar";
+import { sidebarWidth } from "@/components/sidebar/state";
 import Reports from "@/components/Reports.vue";
 export default {
   components: {
-    Reports,
+    Reports,Sidebar,
+  },
+  setup() {
+    return { sidebarWidth };
   },
 };
 </script>
