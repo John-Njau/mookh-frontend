@@ -122,7 +122,9 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="'http://127.0.0.1:8000' + event.profile_pic"
+
+                      :src="event.profile_pic"
+
                       alt="Card image cap"
                     />
                   </div>
@@ -168,36 +170,44 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "BodyCont",
 
   data() {
     return {
       // tasks
-      events: [""],
+      events: [],
     };
   },
   methods: {
     async getData() {
-      try {
-        // fetch tasks
-        const response = await this.$http.get(
-          "/api/events/",{
-           profile_pic: {
-            'Content-Type': 'image/jpeg',
-            
+
+      axios
+        .get("/api/events/",{
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
-          }
-        );
-        // set the data returned as tasks
-        this.events = response.data;
-      } catch (error) {
-        // log the error
-        console.log(error);
-      }
+        
+        }
+        
+        )
+        .then((response) => {
+          this.events = response.data;
+          console.log(
+            
+            this.events
+          
+          );
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
     },
   },
-  created() {
+  mounted() {
     // Fetch tasks on page load
     this.getData();
   },

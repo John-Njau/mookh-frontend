@@ -29,6 +29,14 @@ import OrderView from "../views/reports/OrderView"
 
 Vue.use(VueRouter);
 
+
+
+
+
+
+
+
+
 const routes = [{
         path: "/",
         name: "home",
@@ -74,6 +82,7 @@ const routes = [{
         name: "contact",
         component: Contact,
     },
+
 
     {
         path: '/Finance',

@@ -20,9 +20,12 @@
       <router-link to="/contact">Contact</router-link>|
       <router-link to="/login">Login</router-link> |
     </nav>
+
     <router-view/>
+
   </div>
 </template>
+
 
 
 <style>
@@ -41,6 +44,7 @@
 }
 
 </style>
+
 <script>
 import axios from "axios";
 
@@ -49,14 +53,8 @@ export default {
   components: {
     
   },
-
-  setup() {
-    return { sidebarWidth };
-  },
   data() {
-    return {
-      tasks: [],
-    };
+    return {};
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
