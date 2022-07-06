@@ -12,6 +12,8 @@
 <template>
   <div id="app">
     <nav>
+      <router-link to="/Finance"></router-link>
+      <router-link to="/Order"></router-link>
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>|
       <router-link to="/buyerprofile">BProfile</router-link>|

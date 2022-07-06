@@ -1,7 +1,6 @@
-<< << << < HEAD
 import Vue from "vue";
-import VueRouter from "vue-router"; ===
-=== =
+import VueRouter from "vue-router";
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
@@ -11,8 +10,7 @@ import eventsView from '../views/eventsView'
 import newStoreView from '../views/newStoreView'
 import newEventView from '../views/newEventView'
 
->>>
->>> > a404c9b993ed4b70c3065ee327ccbd7ed232e946
+
 
 import HomeView from "../views/landingpage/HomeView.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
@@ -25,6 +23,9 @@ import storesView from "../views/events/storesView";
 import eventsView from "../views/events/eventsView";
 import newStoreView from "../views/events/newStoreView";
 import newEventView from "../views/events/newEventView";
+import FinanceView from "../views/reports/FinanceView";
+import OrderView from "../views/reports/OrderView"
+
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,20 @@ const routes = [{
         path: "/contact",
         name: "contact",
         component: Contact,
+    },
+
+    {
+        path: '/Finance',
+        name: 'Finance',
+        component: FinanceView
+
+    },
+
+    {
+        path: '/Order',
+        name: 'Order',
+        component: OrderView
+
     },
 
     {
