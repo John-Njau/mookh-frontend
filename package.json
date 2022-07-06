@@ -22,6 +22,7 @@
         "vue-date-fns": "^2.0.2",
         "vue-fontawesome-icon": "^1.3.0",
         "vue-input-search": "^0.0.20",
+        "vue-popperjs": "^2.3.0",
         "vue-quill-editor": "^3.0.6",
         "vue-router": "^3.5.1",
         "vuex": "^3.6.2"

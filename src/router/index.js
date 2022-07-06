@@ -1,14 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Vue from 'vue'
-import VueRouter from 'vue-router'
 
-import HomeView from '../views/HomeView.vue'
-import storesView from '../views/storesView'
-import eventsView from '../views/eventsView'
-import newStoreView from '../views/newStoreView'
-import newEventView from '../views/newEventView'
+// import HomeView from '../views/HomeView.vue' 
 
 
 
