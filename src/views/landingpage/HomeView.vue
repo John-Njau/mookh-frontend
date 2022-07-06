@@ -34,7 +34,7 @@ export default {
     FeaturedStafff,
     Footer,
     Sidebar,
-    Navigation,
+    
 
   },
   data() {
