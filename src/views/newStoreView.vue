@@ -20,7 +20,7 @@
                 </div>
         </nav>
         <div>
-            <form>
+        <form>
                 <header>
                     <div class="col-md-2 mt-3">
                         <h5> <b>Create Store</b></h5>
@@ -106,7 +106,7 @@
         </div>
                 <Footer/>
 
-        </section>
+    </section>
 </template>
 
 

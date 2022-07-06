@@ -1,6 +1,6 @@
 <template>
 
-    <section>
+    <section  :style="{ 'margin-left': sidebarWidth }" >
         <header class="header">
              <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
@@ -56,6 +56,7 @@
          </div>
 
 
+        <Sidebar />
 
         <Footer/>
     </section>
@@ -64,11 +65,15 @@
 </template>
 <script>
 import Footer from '@/components//Footer'
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
 
 export default{
     name:'foot',
-components: { Footer, },
-
+    components: {  Sidebar, Navigation, Footer, },
+    setup() {
+    return { sidebarWidth }
+  },
  data() {
     return {
       selected: ''

@@ -1,5 +1,5 @@
 <template>
-    <div class=" stores">
+    <div :style="{ 'margin-left': sidebarWidth }"  class="stores">
         <section>
         <header class="head">
             <nav class="navbar navbar-expand-lg navbar-light ">
@@ -51,6 +51,12 @@
             </div>
         </div>
         <div class="row mt-5">
+            <div v-for="store in stores" :key="store.id">
+                <p>{{store.storeImage}}</p>
+                <p>{{store.description}}</p>
+                <img :src="store.storeImage" alt="no image">
+
+            </div>
             <div class="card-columns">
                 <div class="card">
                  <div class="wrap mt-5">
@@ -62,7 +68,8 @@
                 </div>  
             </div>        
         </div> 
-                <Footer/>
+        <!-- <Footer/> -->
+        <Sidebar />
 
     </div>
     
@@ -70,15 +77,37 @@
 
 <script>
 import Footer from '@/components//Footer'
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
+import axios from 'axios'
 
-export default{
-    name:'foot',
-    components: { Footer, },
+export default {
+  components: { Sidebar, Navigation,Footer },
+  setup() {
+    return { sidebarWidth }
+  },
 
  data() {
     return {
-      selected: ''
+      selected: '',
+      stores:{
+        store_name: '',
+        storeImage:'',
+        description:'',
+        phone_number:'',
+        type:'',
+        country:'',
+        
+      }
     };
+  },
+  methods:{
+    get_store(){
+        axios.get('/api/stores').then(response =>{this.stores=response.data})
+    }
+  },
+  mounted(){
+    this.get_store()
   }
 }
 

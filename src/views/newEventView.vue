@@ -1,5 +1,6 @@
 <template>
   <section>
+    <div :style="{ 'margin-left': sidebarWidth }">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white"> Events</a>
@@ -29,7 +30,7 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container" >
       <form>
         <header>
           <div class="col-md-4 mt-4">
@@ -172,17 +173,25 @@
           </div>
         </div>
       </form>
+        <Sidebar />
+    </div>
     </div>
   </section>
+  
 </template>
 
 <script>
 import TextEditor from '@/components/textEditor.vue';
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
 
 export default {
-   components: { TextEditor,
-   
+   components: { TextEditor, Sidebar, Navigation, 
     },
+     setup() {
+    return { sidebarWidth }
+  },
+
   data() {
     return {
       selected: "",
