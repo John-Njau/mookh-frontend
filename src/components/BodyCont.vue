@@ -122,7 +122,9 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
+
                       :src="event.profile_pic"
+
                       alt="Card image cap"
                     />
                   </div>
@@ -181,6 +183,7 @@ export default {
   },
   methods: {
     async getData() {
+
       axios
         .get("/api/events/",{
           headers: {
@@ -201,6 +204,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+
     },
   },
   mounted() {

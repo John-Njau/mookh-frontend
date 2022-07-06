@@ -101,7 +101,7 @@
         </ul>
       </div>
       <div class="col-lg-9">
-        <form>
+        <!-- <form>
           <div class="form-group">
             <label for="exampleInputEmail1">First Name</label>
             <input
@@ -156,6 +156,26 @@
           </div>
 
           <button type="submit" class="btn btn-primary">SAVE CHANGE</button>
+        </form> -->
+        <form
+          @submit.prevent="Update"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="">profile</label>
+
+            <input
+              type="text"
+              name=""
+              id=""
+              class="form-control"
+              placeholder=""
+              aria-describedby="helpId"
+            />
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
       </div>
     </div>
