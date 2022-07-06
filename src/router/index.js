@@ -1,8 +1,17 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/HomeView.vue";
+
+import HomeView from "../views/landingpage/HomeView.vue";
+import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
+import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
+import Contact from "../views/ContactView.vue";
 import LoginView from "../views/Auth/LoginView.vue";
 import SignUpView from "../views/Auth/SignUpView.vue";
+
+import storesView from "../views/events/storesView";
+import eventsView from "../views/events/eventsView";
+import newStoreView from "../views/events/newStoreView";
+import newEventView from "../views/events/newEventView";
 
 Vue.use(VueRouter);
 
@@ -38,7 +47,45 @@ const routes = [
     path: "/reset-password",
     name: "reset-password",
     component: () => import("../views/Auth/ResetView.vue"),
-  }
+  },
+  {
+    path: "/buyerprofile",
+    name: "buyerprofile",
+    component: BuyerProfile,
+  },
+  {
+    path: "/update/buyerprofile",
+    name: "updatebuyerprofile",
+    component: UpdateBuyerView,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: Contact,
+  },
+
+  {
+    path: "/stores",
+    name: "stores",
+    component: storesView,
+  },
+
+  {
+    path: "/events",
+    name: "events",
+    component: eventsView,
+  },
+
+  {
+    path: "/addstore",
+    name: "addstore",
+    component: newStoreView,
+  },
+  {
+    path: "/addevent",
+    name: "addevent",
+    component: newEventView,
+  },
 ];
 
 const router = new VueRouter({
@@ -61,5 +108,4 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
 export default router;

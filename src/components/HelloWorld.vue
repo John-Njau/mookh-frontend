@@ -10,9 +10,9 @@
 import axios from "axios";
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
   },
   methods: {
     logout() {
@@ -22,14 +22,13 @@ export default {
       localStorage.removeItem("email");
       localStorage.removeItem("userId");
 
-      this.$store.commit('removeToken');
+      this.$store.commit("removeToken");
 
-      this.$router.push('/login');
-    }
-  }
-}
+      this.$router.push("/login");
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>
