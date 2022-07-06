@@ -1,4 +1,4 @@
-<< << << < HEAD
+
 import Vue from "vue";
 import VueRouter from "vue-router"; ===
 === =
@@ -27,6 +27,14 @@ import newStoreView from "../views/events/newStoreView";
 import newEventView from "../views/events/newEventView";
 
 Vue.use(VueRouter);
+
+
+  
+  
+  
+ 
+ 
+ 
 
 const routes = [{
         path: "/",
@@ -73,6 +81,7 @@ const routes = [{
         name: "contact",
         component: Contact,
     },
+
 
     {
         path: "/stores",

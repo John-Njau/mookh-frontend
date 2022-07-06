@@ -243,10 +243,10 @@ export default {
       if (!this.errors.length) {
         axios
           .post("/api/v1/users/", {
-            firstname: this.firstName,
-            lastname: this.lastName,
+            first_name: this.firstName,
+            last_name: this.lastName,
             email: this.email,
-            phonenumber: this.phoneNumber,
+            phone_number: this.phoneNumber,
             password: this.password1,
           })
           .then((response) => {

@@ -12,10 +12,6 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue'
-import axios from "axios";
-import Sidebar from "@/components/sidebar/Sidebar";
-import { sidebarWidth } from "@/components/sidebar/state";
-
 import NavBar from "@/components/Landing/NavBar.vue";
 import SearchBar from "@/components/SearchBar.vue";
 import BodyCont from "@/components/BodyCont.vue";
@@ -32,15 +28,8 @@ export default {
     BodyCont,
     FeaturedStaff,
     FeaturedStafff,
-    Footer,
-    Sidebar,
-    Navigation,
+    Footer
 
-  },
-  data() {
-    return {
-        tasks: [],
-    }
-  },
+  }
 }
 </script>
