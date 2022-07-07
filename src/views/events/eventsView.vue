@@ -1,6 +1,6 @@
 <template>
 
-    <section>
+    <section :style="{ 'margin-left': sidebarWidth }">
         <header class="header">
              <nav class="navbar navbar-expand-lg navbar-light ">
                 <div class="container-fluid">
@@ -27,8 +27,8 @@
                 <button  type="button" class="btn ">ADD USER</button>
                 </div>
                 <div class="col-md-4 ">
-                <form>
-                <input type="search" placeholder="">
+                <form  @submit.prevent="onSubmit">
+                <input type="search" placeholder="" class="form-control">
                 <button type="submit">Search</button>
                 </form>
                 </div>
@@ -42,45 +42,76 @@
                 </div>
             </div>
         </header>
-           <div class="row mt-4 evn">
-            <div class="col md-4"></div>
-            <div class="col md-4">
+           <div class="row mt-4 ">
+            <div class="col-md-6 " v-if="events">
+                <div v-for="event in events" :key="event.id">
+                <div class="card">
+                    <p>{{event.description}}</p>
+                    <p>{{event.location}}</p>
+                    <p>{{event.country}}</p>
+                    <img :src="event.profile_pic" alt="no image">
+                </div>
+                </div>
+            </div>
+            <div class="col md-6" v-else >
                  <!-- <img src="" alt=""> -->
                  <img src="smsbox.svg" alt="">
                 <p>No events available</p>
                 <router-link to="/addevent"  class="btn btn-md ">ADD EVENT</router-link> 
 
             </div>
-            <div class="col md-4"></div>
 
          </div>
 
 
-
-        <Footer/>
+        <Sidebar/>
+        <!-- <Footer/> -->
     </section>
 
 
 </template>
 <script>
 import Footer from '@/components//Footer'
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
+import axios from 'axios'
 
 export default{
     name:'foot',
-components: { Footer, },
+    components: { Footer,Sidebar },
+    setup() {
+    return { sidebarWidth }
+    },
+    data() {
+        return {
+        selected: '',
+        events:{
+            event_name: '',
+            profile_pic:'',
+            description:'',
+            event_date:'',
+            location:'',
+            country:'',
+            
+        }
+        };
+    },
+    methods:{
+        get_event(){
+            axios.get('/api/events').then(response =>{this.events=response.data})
+        }
+    },
+    mounted(){
+        this.get_event()
+    }
 
- data() {
-    return {
-      selected: ''
-    };
-  }
 }
 </script>
 
 <style scoped>
-*{
+/* *{
     overflow-x: hidden;
-}
+} */
 .header{
     background-color:#31383E;
     color: white;
@@ -121,7 +152,7 @@ form {
   border: 1px solid black;
   border-radius: 5px;
   margin: 0 0 30px;
-  width: 70%;
+  width: 60% !important;
 }
 form:hover{
     border-color: #F8FA29;

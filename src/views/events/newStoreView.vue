@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :style="{ 'margin-left': sidebarWidth }">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white"> Stores</a>
@@ -30,7 +30,7 @@
       </div>
     </nav>
     <div>
-      <form class="frmstore">
+      <form  @submit.prevent="onSubmit">
         <header>
           <div class="col-md-2 mt-3">
             <h5><b>Create Store</b></h5>
@@ -50,17 +50,17 @@
                 <div class="row">
                   <div class="col">
                     <label class="lab">Store name *</label> <br />
-                    <input type="text" />
+                    <input type="text" class="form-control" v-model="store_name" />
                   </div>
                   <div class="col">
                     <label class="lab">Store type *</label> <br />
-                    <input type="text" />
+                    <input type="text" class="form-control" v-model="type"/>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col">
                     <label>Store Country *</label> <br />
-                    <select v-model="selected">
+                    <select v-model="country">
                       <option style="background-color: white" disabled>
                         Kenya
                       </option>
@@ -72,7 +72,7 @@
                   </div>
                   <div class="col">
                     <label>Store Currency *</label> <br />
-                    <select v-model="selected">
+                    <select v-model="currency">
                       <option style="background-color: white" disabled value="">
                         What is your currency?
                       </option>
@@ -86,19 +86,19 @@
                 <div class="row">
                   <div class="col">
                     <label>Email </label> <br />
-                    <input type="email" placeholder="Add store email" />
+                    <input type="email" placeholder="Add store email" v-model="email"/>
                   </div>
                   <div class="col">
                     <label>Phone number </label> <br />
                     <input
-                      v-model.number="phone"
+                      v-model="phone_number"
                       placeholder="phone number (245704155513)"
                     />
                   </div>
                 </div>
                 <div class="mt-3">
                   <label>Store Description * </label> <br />
-                  <textEditor />
+                  <textEditor v-model="description"/>
                 </div>
               </div>
             </div>
@@ -125,6 +125,7 @@
         </div>
       </form>
     </div>
+      <Sidebar />
     <Footer />
   </section>
 </template>
@@ -138,21 +139,49 @@
 <script>
 import TextEditor from "@/components/textEditor.vue";
 import Footer from "@/components//Footer";
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
+import axios from 'axios'
+
 
 export default {
-  components: { TextEditor },
+  components: { TextEditor ,Sidebar},
+    setup() {
+    return { sidebarWidth }
+  },
+  data() {
+      return {
+        selected: '',
+        stores:{
+          store_name: '',
+          storeImage:'',
+          description:'',
+          phone_number:'',
+          email:'',
+          type:'',
+          country:'',
+        },
+      };
+  },
+    methods:{
+    Stores(){
+        axios.post('/api/stores').then(response =>{this.stores=response.data})
+    }
+    },
+    mounted(){
+      this.Store()
+    }
 };
+
+
 </script>
+
+
 <style scoped>
 * {
   overflow-x: hidden;
 }
-.frmstore {
-  width: 80% !important;
-  margin: 0 auto;
-  margin-right: 2vw;
-  margin-top: 1.4vw;
-}
+
 input {
   width: 100%;
   border-radius: 5px;

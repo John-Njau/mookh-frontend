@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :style="{ 'margin-left': sidebarWidth }">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white"> Events</a>
@@ -29,21 +29,20 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <!-- <div class="container"> -->
       <form>
-        <header>
+        <header> 
           <div class="col-md-4 mt-4">
             <h5><b>Create Event</b></h5>
             <p>Add the type of content you want to create.</p>
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-4 mt-4">
-            <!-- <button class="back-btn" href="/stores">BACK</button> -->
             <router-link to="/events"  class="back-btn btn">BACK</router-link> 
 
             <button class="store-btn pl-2" href="/stores">SAVE</button>
           </div>
-        </header>
+        </header> 
         <div class="data">
           <div class="row">
             <div class="col-md-6">
@@ -170,19 +169,25 @@
               <p>Upload an image at least 1000 x 1000 pixels</p>
             </div>
           </div>
-        </div>
+        </div> 
       </form>
-    </div>
+    <!-- </div> -->
+    <Sidebar/>
   </section>
 </template>
 
 <script>
 import TextEditor from '@/components/textEditor.vue';
+import Sidebar from "@/components/sidebar/Sidebar";
+import { sidebarWidth } from "@/components/sidebar/state";
 
 export default {
-   components: { TextEditor,
+   components: { TextEditor,Sidebar,
    
     },
+    setup() {
+    return { sidebarWidth };
+  },
   data() {
     return {
       selected: "",

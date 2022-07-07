@@ -4,7 +4,6 @@
       <button class="btn-sm" @click="logout()">Log out</button>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -23,14 +22,13 @@ export default {
       localStorage.removeItem("email");
       localStorage.removeItem("userId");
 
-      this.$store.commit('removeToken');
+      this.$store.commit("removeToken");
 
-      this.$router.push('/login');
-    }
-  }
-}
+      this.$router.push("/login");
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 </style>

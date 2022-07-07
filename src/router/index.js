@@ -1,8 +1,7 @@
-
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import HomeView from "../views/landingpage/HomeView.vue";
+import HomeView from "../views/Landingpage/HomeView.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
 import Contact from "../views/ContactView.vue";
@@ -13,30 +12,31 @@ import storesView from "../views/events/storesView";
 import eventsView from "../views/events/eventsView";
 import newStoreView from "../views/events/newStoreView";
 import newEventView from "../views/events/newEventView";
+import FinanceView from "../views/reports/FinanceView";
+import OrderView from "../views/reports/OrderView"
+
 
 Vue.use(VueRouter);
-
-
 
 const routes = [{
         path: "/",
         name: "home",
         component: HomeView,
     },
+
     {
         path: "/about",
         name: "about",
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
         component: () =>
-            import ( /* webpackChunkName: "about" */ "../views/AboutView.vue"),
+            import ("../views/AboutView.vue"),
     },
+
     {
         path: "/login",
         name: "login",
         component: LoginView,
     },
+
     {
         path: "/signup",
         name: "signup",
@@ -64,7 +64,6 @@ const routes = [{
         component: Contact,
     },
 
-
     {
         path: "/stores",
         name: "stores",
@@ -86,6 +85,16 @@ const routes = [{
         path: "/addevent",
         name: "addevent",
         component: newEventView,
+    },
+    {
+        path: "/Finance",
+        name: "Finance",
+        component: FinanceView,
+    },
+    {
+        path: "/Order",
+        name: "Order",
+        component: OrderView,
     },
 ];
 

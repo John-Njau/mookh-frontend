@@ -8,12 +8,6 @@ import 'bootstrap'
 // import '@fortawesome/fontawesome-free/js/all'
 import './assets/css/main.css';
 
-
-// set a prototype for http
-Vue.prototype.$http = axios;
-
-
-
 Vue.config.productionTip = false
 
 
