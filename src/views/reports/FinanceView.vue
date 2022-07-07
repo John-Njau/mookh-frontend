@@ -1,9 +1,12 @@
 <template>
-  <div class="" id="wrapper">
+  <div class="" id="wrapper" :style="{ 'margin-left': sidebarWidth }">
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
       <!-- Top navigation-->
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #31383E">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: #31383e"
+      >
         <a class="navbar-brand" href="#"></a>
         <button
           class="navbar-toggler"
@@ -79,39 +82,27 @@
       </div>
       <div class="card-group">
         <div class="card">
-          
           <div class="card-body">
             <!-- <h5 class="card-title">Card title</h5> -->
-            <p class="card-text text-center">
-              Net Earnings
-              0.00
-            </p>
+            <p class="card-text text-center">Net Earnings 0.00</p>
             <p class="card-text">
               <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
             </p>
           </div>
         </div>
         <div class="card">
-          
           <div class="card-body">
             <!-- <h5 class="card-title">Card title</h5> -->
-            <p class="card-text text-center">
-              Amount Withdrawn
-              0.00
-            </p>
+            <p class="card-text text-center">Amount Withdrawn 0.00</p>
             <p class="card-text">
               <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
             </p>
           </div>
         </div>
         <div class="card">
-          
           <div class="card-body">
             <!-- <h5 class="card-title">Card title</h5> -->
-            <p class="card-text">
-              Current Balance
-              0.00
-            </p>
+            <p class="card-text">Current Balance 0.00</p>
             <p class="card-text">
               <!-- <small class="text-muted">Last updated 3 mins ago</small> -->
             </p>
@@ -168,26 +159,35 @@
       <!-- Copyright -->
     </footer>
     <!-- Footer -->
+    <Sidebar />
   </div>
 </template>
 
 <script>
+import Sidebar from "@/components/sidebar/Sidebar";
+import { sidebarWidth } from "@/components/sidebar/state";
+
 import Reports from "@/components/Reports.vue";
 export default {
   components: {
     Reports,
+    Sidebar,
   },
+  setup() {
+    return { sidebarWidth };
+  },
+  data() {
+    return {
+      selected: ''
+    };
+  }
 };
+
 </script>
 
 <style scoped>
-
-.card-group{
+.card-group {
   margin-top: 30px;
   margin-bottom: 40px;
 }
-
-
-
-
 </style>

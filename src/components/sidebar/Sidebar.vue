@@ -26,6 +26,9 @@ export default {
       <SidebarLink to="/stores" icon="fa-solid fa-circle-plus"></SidebarLink>
       <SidebarLink to="/stores" icon="fa-solid fa-folder"></SidebarLink>
       <SidebarLink to="/events" icon="fa-solid fa-ticket"></SidebarLink>
+      <h6 style="color:#F8FA29">REPORTS</h6>
+       <SidebarLink to="/Order" icon="fa-solid fa-folder-open"></SidebarLink>
+       <SidebarLink to="/Finance" icon="fa-solid fa-coins"></SidebarLink>
     </span>
     <span v-else>
   <SidebarLink to="/" icon="fas fa-home" class="mt-5">HOME</SidebarLink>
@@ -33,6 +36,9 @@ export default {
     <SidebarLink to="/stores" icon="fa-solid fa-circle-plus">STORES</SidebarLink>
     <SidebarLink to="/stores" icon="fa-solid fa-folder">ALL STORES</SidebarLink>
     <SidebarLink to="/events" icon="fa-solid fa-ticket">EVENTS</SidebarLink>
+    <h6 style="color:#F8FA29">REPORTS</h6>
+       <SidebarLink to="/Order" icon="fa-solid fa-folder-open">ORDERS</SidebarLink>
+       <SidebarLink to="/Finance" icon="fa-solid fa-coins">FINANCE</SidebarLink>
     </span>
 
      <span
