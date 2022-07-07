@@ -50,8 +50,20 @@ export default {
       events: [],
     };
   },
+  methods: {
+    getData() {
+      axios
+        .get("/api/events/")
+        .then((response) => {
+          this.events = response.data;
+        })
+        .catch((error) => {
+          // log the error
+          console.log(error);
+        });
+    },
+  },
   mounted() {
-    // Fetch tasks on page load
     this.getData();
   },
 
@@ -60,7 +72,7 @@ export default {
       axios
         .get("/api/events/", {
           headers: {
-            'Content-Type': 'image/jpg',
+            "Content-Type": "image/jpg",
             Authorization: "Token" + localStorage.getItem("token"),
           },
         })

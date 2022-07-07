@@ -184,6 +184,8 @@ export default {
 
 
   <style scoped>
+
+
 #login {
   border: 1px solid #ffffff;
   /* box-shadow: 2px 2px 2px 2px rgba(255, 255, 255); */
@@ -224,5 +226,13 @@ export default {
     ); */
 }
 
+@media only screen and (max-width: 991px) {
+  #login-card {
+    margin-top: 0;
+  }
 
+  #digital-content {
+    display: none;
+  }
+}
 </style>
