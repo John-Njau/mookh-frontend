@@ -50,24 +50,24 @@
                 </select>
             </div>
         </div>
-        <div class="row mt-5">
+        <!-- <div class="row mt-5">
             <div v-for="store in stores" :key="store.id">
                 <p>{{store.storeImage}}</p>
                 <p>{{store.description}}</p>
                 <img :src="store.storeImage" alt="no image">
 
+                <div class="card-columns">
+                    <div class="card">
+                    <div class="wrap mt-5">
+                        <router-link to="/addstore" class="btn-md">NEW STORE</router-link> 
+                    </div>
+                    <div class="card-text text-center mt-3">
+                        <p>A store like a folder where you will be able to create events ,upload digital content or set up a shop to sell your products online.</p>
+                    </div>
+                    </div>  
+                </div>    
             </div>
-            <div class="card-columns">
-                <div class="card">
-                 <div class="wrap mt-5">
-                    <router-link to="/addstore" class="btn-md">NEW STORE</router-link> 
-                 </div>
-                 <div class="card-text text-center mt-3">
-                    <p>A store like a folder where you will be able to create events ,upload digital content or set up a shop to sell your products online.</p>
-                </div>
-                </div>  
-            </div>        
-        </div> 
+        </div>  -->
         <!-- <Footer/> -->
         <Sidebar />
 
@@ -82,7 +82,7 @@ import { sidebarWidth } from '@/components/sidebar/state'
 import axios from 'axios'
 
 export default {
-  components: { Sidebar, Navigation,Footer },
+  components: { Sidebar ,Footer },
   setup() {
     return { sidebarWidth }
   },

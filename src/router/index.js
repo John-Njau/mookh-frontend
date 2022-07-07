@@ -1,18 +1,6 @@
 
 import Vue from "vue";
-import VueRouter from "vue-router"; ===
-=== =
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-import HomeView from '../views/HomeView.vue'
-import storesView from '../views/storesView'
-import eventsView from '../views/eventsView'
-import newStoreView from '../views/newStoreView'
-import newEventView from '../views/newEventView'
-
->>>
->>> > a404c9b993ed4b70c3065ee327ccbd7ed232e946
+import VueRouter from "vue-router";
 
 import HomeView from "../views/landingpage/HomeView.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
@@ -29,12 +17,6 @@ import newEventView from "../views/events/newEventView";
 Vue.use(VueRouter);
 
 
-  
-  
-  
- 
- 
- 
 
 const routes = [{
         path: "/",

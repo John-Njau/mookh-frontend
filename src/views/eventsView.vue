@@ -20,9 +20,9 @@
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </nav> 
             <hr>
-            <div class="row">
+             <div class="row">
                 <div class="col-md-4 ">
                 <button  type="button" class="btn ">ADD USER</button>
                 </div>
@@ -40,18 +40,27 @@
                     
                     </select>
                 </div>
-            </div>
+            </div> 
         </header>
            <div class="row mt-4 evn">
-            <div class="col md-4"></div>
-            <div class="col md-4">
-                 <!-- <img src="" alt=""> -->
-                 <img src="smsbox.svg" alt="">
-                <p>No events available</p>
-                <router-link to="/addevent"  class="btn btn-md ">ADD EVENT</router-link> 
+                <div class="col md-4"></div>
+                <div class="col md-4">
+                    <img src="" alt="">
+                    <img src="smsbox.svg" alt="">
+                    <p>No events available</p>
+                    <router-link to="/addevent"  class="btn btn-md ">ADD EVENT</router-link> 
 
+                </div>
+                <div class="col md-4">
+                <div v-for="event in events" :key="event.id">
+                    <p>{{event.profile_pic}}</p>
+                    <p>{{event.description}}</p>
+                    <p>{{event.description}}</p>
+                    <p>{{event.country}}</p>
+
+                    <img :src="event.profile_pic" alt="no image">
+                </div>
             </div>
-            <div class="col md-4"></div>
 
          </div>
 
@@ -67,24 +76,43 @@
 import Footer from '@/components//Footer'
 import Sidebar from '@/components/sidebar/Sidebar'
 import { sidebarWidth } from '@/components/sidebar/state'
+import axios from 'axios'
+
 
 export default{
     name:'foot',
-    components: {  Sidebar, Navigation, Footer, },
+    components: {  Sidebar, Footer, },
     setup() {
     return { sidebarWidth }
   },
  data() {
     return {
-      selected: ''
+      selected: '',
+       events:{
+        event_name: '',
+        profile_pic:'',
+        description:'',
+        event_date:'',
+        location:'',
+        country:'',
+        
+      }
     };
+  },
+   methods:{
+    get_event(){
+        axios.get('/api/events').then(response =>{this.events=response.data})
+    }
+  },
+  mounted(){
+    this.get_event()
   }
 }
 </script>
 
 <style scoped>
 *{
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .header{
     background-color:#31383E;

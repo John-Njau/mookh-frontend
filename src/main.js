@@ -14,9 +14,6 @@ Vue.prototype.$http = axios;
 
 
 
-import '@fortawesome/fontawesome-free/js/all'
-import 'bootstrap'
-
 Vue.config.productionTip = false
 
 

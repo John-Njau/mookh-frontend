@@ -31,7 +31,7 @@
       </div>
     </nav>
     <div class="container" >
-      <form>
+       <form> 
         <header>
           <div class="col-md-4 mt-4">
             <h5><b>Create Event</b></h5>
@@ -39,7 +39,6 @@
           </div>
           <div class="col-md-4"></div>
           <div class="col-md-4 mt-4">
-            <!-- <button class="back-btn" href="/stores">BACK</button> -->
             <router-link to="/events"  class="back-btn btn">BACK</router-link> 
 
             <button class="store-btn pl-2" href="/stores">SAVE</button>
@@ -172,7 +171,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </form> -->
         <Sidebar />
     </div>
     </div>
@@ -182,11 +181,11 @@
 
 <script>
 import TextEditor from '@/components/textEditor.vue';
-import Sidebar from '@/components/sidebar/Sidebar'
-import { sidebarWidth } from '@/components/sidebar/state'
+import Sidebar from '@/components/sidebar/Sidebar';
+import { sidebarWidth } from '@/components/sidebar/state';
 
 export default {
-   components: { TextEditor, Sidebar, Navigation, 
+   components: { TextEditor, Sidebar, 
     },
      setup() {
     return { sidebarWidth }
@@ -280,4 +279,5 @@ select{
 input[type=checkbox] {
     transform: scale(.3);
 }
+
 </style>
