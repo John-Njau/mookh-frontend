@@ -1,6 +1,6 @@
 <template>
-  <div class="stores">
-    <section>
+  <div class="stores" :style="{ 'margin-left': sidebarWidth }">
+    <section >
       <header class="head">
         <nav class="navbar navbar-expand-lg navbar-light">
           <div class="container-fluid">
@@ -64,44 +64,90 @@
       </div>
     </div>
     <div class="row mt-5">
-      <div class="card-columns">
-        <div class="card">
-          <div class="wrap mt-5">
-            <router-link to="/addstore" class="btn-md">NEW STORE</router-link>
-          </div>
-          <div class="card-text text-center mt-3">
+      <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="wrap mt-5">
+                <router-link to="/addstore" class="btn-md">NEW STORE</router-link>
+              </div>
+              <div class="card-text text-center mt-3">
+                <p>
+                  A store like a folder where you will be able to create events
+                  ,upload digital content or set up a shop to sell your products
+                  online.
+                </p>
+              </div>
+            </div>
+            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+
+        <div class="card" v-for="store in stores" :key="store.id"  >
+              <img :src="store.storeImage" alt="no image" style="width: auto; height:20rem;">
+          <div class="card-text mt-3">
             <p>
-              A store like a folder where you will be able to create events
-              ,upload digital content or set up a shop to sell your products
-              online.
+             {{store.description}}
             </p>
           </div>
         </div>
+       <br>
+        </div>
+
+
       </div>
     </div>
-    <Footer />
+
+      <Sidebar />
+    <!-- <Footer /> -->
+
+
   </div>
 </template>
 
 <script>
 import Footer from "@/components//Footer";
+import Sidebar from '@/components/sidebar/Sidebar'
+import { sidebarWidth } from '@/components/sidebar/state'
+import axios from 'axios'
 
 export default {
   name: "foot",
-  components: { Footer },
-
-  data() {
-    return {
-      selected: "",
-    };
+  components: { Footer,Sidebar },
+  setup() {
+    return { sidebarWidth }
   },
+  data() {
+      return {
+        selected: '',
+        stores:{
+          store_name: '',
+          storeImage:'',
+          description:'',
+          phone_number:'',
+          type:'',
+          country:'',
+          
+        }
+      };
+    },
+    methods:{
+      get_store(){
+          axios.get('/api/stores').then(response =>{this.stores=response.data})
+      }
+    },
+    mounted(){
+      this.get_store()
+    }
+ 
 };
 </script>
 
 <style scoped>
 * {
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 
 .header {
   background-color: #31383e;
@@ -132,7 +178,7 @@ form {
   border: 1px solid currentColor;
   border-radius: 5px;
   margin: 0 0 30px;
-  width: 90%;
+  width: 70% !important;
 }
 form:hover {
   border-color: #f8fa29;
@@ -184,19 +230,7 @@ select:hover {
   transform: translateY(-5px);
 }
 
-/* Float four columns side by side */
-.card {
-  width: 30%;
-  padding: 10px 10px;
-}
-.card:hover {
-  box-shadow: 0px 15px 20px #f0f0f0;
-  transform: translateY(-7px);
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #fff;
-}
+
+
+
 </style>

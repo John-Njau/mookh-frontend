@@ -118,7 +118,9 @@
               >
                 <li><a class="dropdown-item" href="#">PROFILE</a></li>
                 <li v-if="$store.state.isAuthenticated">
-                  <router-link to="/" class="dropdown-item">LOGOUT</router-link>
+                  <router-link to="/login" class="dropdown-item"
+                    >LOGOUT</router-link
+                  >
                 </li>
                 <li v-else>
                   <router-link to="/" class="button is-light"
@@ -134,6 +136,7 @@
             id="whatsapp"
             class="btn btn-primary"
             href="https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+surface-send&type=phone_number&app_absent=0"
+            target="_blank"
             role="button"
             ><svg
               xmlns="http://www.w3.org/2000/svg"
