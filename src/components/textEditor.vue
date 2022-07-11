@@ -1,9 +1,9 @@
-<template>
+<!-- <template>
   <div class="example">
     <quill-editor
       class="editor"
       ref="myTextEditor"
-      :value="content"
+      :value="description"
       :options="editorOption"
       @change="onEditorChange"
       @blur="onEditorBlur($event)"
@@ -85,4 +85,4 @@
       overflow: hidden;
     }
   }
-</style>
+</style> -->

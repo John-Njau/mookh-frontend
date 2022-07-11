@@ -86,6 +86,16 @@ const routes = [{
         name: "addevent",
         component: newEventView,
     },
+    {
+        path: "/Finance",
+        name: "Finance",
+        component: FinanceView,
+    },
+    {
+        path: "/Order",
+        name: "Order",
+        component: OrderView,
+    },
 ];
 
 const router = new VueRouter({
