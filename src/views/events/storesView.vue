@@ -81,17 +81,23 @@
             </div>
       </div>
       <div class="col-md-4">
-        <div class="card" v-for="store in stores" :key="store.id">
-              <img :src="store.storeImage" alt="no image">
+        <div class="row">
+
+        <div class="card" v-for="store in stores" :key="store.id"  >
+              <img :src="store.storeImage" alt="no image" style="width: auto; height:20rem;">
           <div class="card-text mt-3">
             <p>
              {{store.description}}
             </p>
           </div>
         </div>
+       <br>
+        </div>
+
+
       </div>
-       
     </div>
+
       <Sidebar />
     <!-- <Footer /> -->
 
@@ -139,8 +145,9 @@ export default {
 
 <style scoped>
 * {
-  overflow-x: hidden;
+  overflow: hidden;
 }
+
 
 .header {
   background-color: #31383e;
@@ -171,7 +178,7 @@ form {
   border: 1px solid currentColor;
   border-radius: 5px;
   margin: 0 0 30px;
-  width: 90%;
+  width: 70% !important;
 }
 form:hover {
   border-color: #f8fa29;
@@ -223,20 +230,7 @@ select:hover {
   transform: translateY(-5px);
 }
 
-/* Float four columns side by side */
-/* .card { */
-  /* width: 50%;
-  padding:10px 10px;
-  height: 50%; */
-/* } */
-.card:hover {
-  box-shadow: 0px 15px 20px #f0f0f0;
-  transform: translateY(-7px);
-}
-/* .card { */
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #fff; */
-/* } */
+
+
+
 </style>
