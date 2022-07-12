@@ -116,15 +116,15 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li><a class="dropdown-item" href="#">PROFILE</a></li>
                 <li v-if="$store.state.isAuthenticated">
-                  <router-link to="/login" class="dropdown-item"
-                    >LOGOUT</router-link
+                  <router-link to="/" class="dropdown-item"
+                    >PROFILE</router-link
                   >
+                  <router-link to="/" class="dropdown-item">LOGOUT</router-link>
                 </li>
                 <li v-else>
-                  <router-link to="/" class="button is-light"
-                    >Log In</router-link
+                  <router-link to="/login" class="dropdown-item"
+                    >LOGIN</router-link
                   >
                 </li>
               </ul>

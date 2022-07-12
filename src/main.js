@@ -14,7 +14,7 @@ import './assets/css/main.css';
 Vue.config.productionTip = false
 
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000'
+axios.defaults.baseURL = 'https://mookh-africa.herokuapp.com/'
 
 new Vue({
     router,

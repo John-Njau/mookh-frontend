@@ -115,7 +115,10 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="'http://127.0.0.1:8000' + event.profile_pic"
+                      :src="
+                        'https://mookh-africa.herokuapp.com/' +
+                        event.profile_pic
+                      "
                       alt="Card image cap"
                     />
                   </div>
