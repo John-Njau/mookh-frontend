@@ -3,6 +3,7 @@
     <NavBar />
     <SearchBar />
     <BodyCont />
+    <div class="whatsapp"></div>
     <FeaturedStaff />
     <FeaturedStafff />
     <Footer />
@@ -10,6 +11,23 @@
 </template>
 
 <script>
+// $(function () {
+//   $(".whatsapp").venomButton({
+//     phone: "5521990000000",
+//     message: "I'd like to order a pizza",
+//     chatMessage: "Hi there 👋<br><br>How can I help you?",
+//     showPopup: true,
+//     // avatar: "./assets/avatar.jpg",
+//     position: "right",
+//     headerColor: "#033E8C",
+//     buttonColor: "#033E8C",
+//     linkButton: false,
+//     showOnIE: false,
+//     nameClient: "Joe Dutra",
+//     headerTitle: "Commercial Sales",
+//   });
+// });
+
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 

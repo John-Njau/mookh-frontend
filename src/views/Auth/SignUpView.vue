@@ -2,11 +2,13 @@
 <template>
   <!-- Section: Design Block -->
   <section class="background-radial-gradient overflow-hidden" id="signup-page">
-    <div
-      class="container-fluid px-4 py-5 px-md-5 text-center text-lg-start my-5"
-    >
+    <div class="container-fluid px-4 py-5 px-md-5 text-center text-lg-start">
       <div class="row gx-lg-5 align-items-center mb-5">
-        <div class="col-lg-6 mb-5 mb-lg-0" id="digital-content" style="z-index: 10">
+        <div
+          class="col-lg-5 mb-5 mb-lg-0"
+          id="digital-content"
+          style="z-index: 10"
+        >
           <h1
             class="my-5 display-5 fw-bold ls-tight"
             style="color: hsl(218, 81%, 95%)"
@@ -25,16 +27,16 @@
           </p>
           <button
             class="btn btn-block btn-sm outline-2"
-            style="background-color: #f8fa29; width: 30%; height: 40px"
+            style="background-color: #f8fa29; width: 50%; height: 40px"
           >
             READ MORE
           </button>
         </div>
 
-        <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-          <div class="card bg-glass">
+        <div class="col-lg-7 mb-lg-0 position-relative">
+          <div class="card bg-glass pt-3">
             <div class="row">
-              <div class="col-md-5">
+              <div class="col-md-6">
                 <div class="brand m-4 ml-5">
                   <a
                     type="button"
@@ -58,11 +60,11 @@
                   </h4>
                   <p>Already have an account? <a href="/login">Log In</a></p>
                 </div>
-                <br />
+                <!-- <br /> -->
               </div>
             </div>
             <div class="hr"></div>
-            <div class="card-body px-4 py-5 px-md-5">
+            <div class="card-body px-4 py-4 px-md-5">
               <form @submit.prevent="Signup">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
@@ -146,10 +148,10 @@
                     for="form2Example33"
                   >
                     By signing up you agree to our
-                    <a href="#" class="text-white">Terms of Service</a> and
-                    <a href="#" class="text-white">Privacy Policy</a>. You also
-                    agree to receive occasional emails in the form of our
-                    newsletter.(You can unsubscribe at any moment.)
+                    <a href="#" class="">Terms of Service</a> and
+                    <a href="#" class="">Privacy Policy</a>. You also agree to
+                    receive occasional emails in the form of our newsletter.(You
+                    can unsubscribe at any moment.)
                   </label>
                 </div>
                 <div class="row">
@@ -158,10 +160,10 @@
                     <div class="">
                       <!-- Submit button -->
                       <button
-                        class="btn btn-block btn-sm mt-4 mb-4"
+                        class="btn btn-block btn-sm mt-2 mb-4"
                         style="
                           width: 100%;
-                          height: 40%;
+                          height: 3.4vw;
                           background-color: #f8fa29;
                         "
                       >
@@ -239,7 +241,6 @@ export default {
         this.errors.push("Password does not match");
       }
 
-
       if (!this.errors.length) {
         axios
           .post("/api/v1/users/", {
@@ -295,13 +296,16 @@ export default {
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
+  padding-right: 2vw !important;
 }
 
 .bg-glass {
-  background-color: #0d0d0c !important;
+  background-color: white !important;
   border-radius: 15px;
   backdrop-filter: saturate(200%) blur(25px);
-  color: #fff;
+  height: 90vh;
+  width: 53vw;
+  /* color: #fff; */
 }
 
 .hr {
