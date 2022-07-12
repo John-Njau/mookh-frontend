@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :style="{ 'margin-left': sidebarWidth }">
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand text-white"> Stores</a>
@@ -30,7 +30,7 @@
       </div>
     </nav>
     <div>
-      <form class="frmstore">
+      <form method="post" @submit.prevent="Stores"  enctype="multipart/form-data">
         <header>
           <div class="col-md-2 mt-3">
             <h5><b>Create Store</b></h5>
@@ -38,29 +38,35 @@
           </div>
           <div class="col-md-7"></div>
           <div class="col-md-3 mt-3">
-            <button class="btn store-btn" href="/stores">SAVE</button>
+            <button class="btn store-btn" type="submit" href="/stores">
+              SAVE
+            </button>
           </div>
         </header>
         <div class="row mt-3">
-          <div class="col-md-9">
+          <div class="col-md-8">
             <h6>General Information(* Indicates required fields)</h6>
             <div class="data">
-              <div class="col-md-9">
+              <div class="col-md-10">
                 <hr />
-                <div class="row">
+                <div class="row mt-4">
                   <div class="col">
                     <label class="lab">Store name *</label> <br />
-                    <input type="text" />
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="store_name"
+                    />
                   </div>
                   <div class="col">
                     <label class="lab">Store type *</label> <br />
-                    <input type="text" />
+                    <input type="text" class="form-control" v-model="type" />
                   </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                   <div class="col">
                     <label>Store Country *</label> <br />
-                    <select v-model="selected">
+                    <select v-model="country">
                       <option style="background-color: white" disabled>
                         Kenya
                       </option>
@@ -72,7 +78,7 @@
                   </div>
                   <div class="col">
                     <label>Store Currency *</label> <br />
-                    <select v-model="selected">
+                    <select v-model="currency">
                       <option style="background-color: white" disabled value="">
                         What is your currency?
                       </option>
@@ -83,31 +89,41 @@
                     </select>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row mt-4">
                   <div class="col">
                     <label>Email </label> <br />
-                    <input type="email" placeholder="Add store email" />
+                    <input
+                      type="email"
+                      placeholder="Add store email"
+                      v-model="email"
+                    />
                   </div>
                   <div class="col">
                     <label>Phone number </label> <br />
                     <input
-                      v-model.number="phone"
+                      v-model="phone_number"
                       placeholder="phone number (245704155513)"
                     />
                   </div>
                 </div>
-                <div class="mt-3">
+                <div class="mt-4">
                   <label>Store Description * </label> <br />
-                  <textEditor />
+                  <textarea rows="6" cols="55"
+                    v-model="description"
+                    placeholder="Add store decription"
+                  ></textarea>
+
+                  <!-- <textEditor v-model="description" /> -->
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-3 photo">
+          <div class="col-md-4 photo">
             <h6>Upload Store Photo</h6>
             <div class="card mt-3">
-              <div class="text">
-                <svg width="60px" height="60px" viewBox="0 0 548.165 548.165">
+              <div class=" text-center">
+              <button type="submit" class="upload">
+                  <svg width="70px" height="70px" viewBox="0 0 548.165 548.165">
                   <path
                     d="M526.76 131.04c-14.277-14.274-31.498-21.413-51.675-21.413h-63.953l-14.558-38.826c-3.618-9.325-10.229-17.368-19.846-24.128-9.613-6.757-19.462-10.138-29.551-10.138h-146.18c-10.088 0-19.939 3.381-29.552 10.138-9.613 6.76-16.225 14.803-19.842 24.128l-14.56 38.826H73.09c-20.179 0-37.401 7.139-51.678 21.413C7.138 145.315.001 162.539.001 182.716v255.81c0 20.178 7.137 37.404 21.411 51.675 14.277 14.277 31.5 21.416 51.678 21.416h401.99c20.177 0 37.397-7.139 51.675-21.416 14.273-14.271 21.412-31.497 21.412-51.675v-255.81c.004-20.177-7.135-37.401-21.405-51.676zM364.45 400.99c-25.029 25.03-55.147 37.548-90.362 37.548s-65.331-12.518-90.362-37.548c-25.031-25.026-37.544-55.151-37.544-90.358 0-35.218 12.517-65.333 37.544-90.364 25.028-25.031 55.148-37.544 90.362-37.544s65.333 12.516 90.362 37.544c25.03 25.028 37.545 55.146 37.545 90.364 0 35.207-12.514 65.329-37.545 90.358z"
                     fill="#D9DDD9"
@@ -117,14 +133,18 @@
                     fill="#D9DDD9"
                   ></path>
                 </svg>
-                <p>click or drop an image to upload</p>
+              </button>
               </div>
+              <input  type="file" id="actual-btn" hidden  >
+              <label for="actual-btn" class="mt-5 text-center" v-on:change="storeImage" >click or drop an image to upload</label>
             </div>
             <p>Upload an image at least 1000 x 1000 pixels</p>
           </div>
         </div>
       </form>
     </div>
+
+    <Sidebar />
     <Footer />
   </section>
 </template>
@@ -136,23 +156,65 @@
 
 
 <script>
-import TextEditor from "@/components/textEditor.vue";
 import Footer from "@/components//Footer";
+import Sidebar from "@/components/sidebar/Sidebar";
+import { sidebarWidth } from "@/components/sidebar/state";
+import axios from "axios";
 
 export default {
-  components: { TextEditor },
+  components: {  
+  Sidebar },
+  setup() {
+    return { sidebarWidth };
+  },
+  data() {
+    return {
+      selected: "",
+        store_name: "",
+        storeImage: "",
+        description: "",
+        phone_number: "",
+        email: "",
+        type: "",
+        country: "",
+        currency: "",
+        stores:[],
+      }
+    
+  },
+
+  methods: {
+    Stores() {    
+        axios.post("/api/stores/", {
+            store_name: this.store_name,
+            storeImage: this.storeImage,
+            email: this.email,
+            type: this.type,
+            country: this.country,
+            currency: this.currency,
+            phone_number: this.phone_number,
+            description: this.description,
+          }).then((response) => {this.stores=response.data }) 
+            .catch((error) => {
+          console.log(error);
+        });
+  },
+
+  },
+    mounted(){
+      this.Stores();
+    }
 };
 </script>
+
+
 <style scoped>
 * {
-  overflow-x: hidden;
+  /* overflow-x: hidden;/ */
+  box-sizing: border-box;
+  /* margin: 0; */
 }
-.frmstore {
-  width: 80% !important;
-  margin: 0 auto;
-  margin-right: 2vw;
-  margin-top: 1.4vw;
-}
+
 input {
   width: 100%;
   border-radius: 5px;
@@ -197,7 +259,7 @@ h6 {
 }
 .card {
   width: 90%;
-  height: 80%;
+  height: 60%;
   padding: 10px 10px;
 }
 
@@ -212,5 +274,14 @@ select {
   border-radius: 5px;
   border: 1px solid #202b2b !important;
   color: black;
+}
+form{
+  width: 100% !important;
+  height: 100vh !important;
+}
+.upload{
+  position: relative;
+  top: 70%;
+  border: transparent;
 }
 </style>

@@ -140,7 +140,7 @@ export default {
 // import ".assets/css/profile.scss"
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 .side-nav {
   background-color: #31383e;
   height: 83vh;

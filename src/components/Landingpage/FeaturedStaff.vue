@@ -20,7 +20,7 @@
                 COUNTRY
               </p>
               <select class="form-select">
-                <option selected>All</option>
+                <option selected>Kenya</option>
                 <option value="1">Kenya</option>
                 <option value="2">Uganda</option>
                 <option value="3">Rwanda</option>
@@ -64,9 +64,11 @@
                 COUNTRY
               </p>
               <select class="form-select">
-                <option selected>All</option>
-                <option value="1">Newest to Oldest</option>
-                <option value="2">Oldest to Newest</option>
+                <option selected>Kenya</option>
+                 <option value="1">Kenya</option>
+                <option value="2">Uganda</option>
+                <option value="3">Rwanda</option>
+             
               </select>
             </div>
             <div class="col"></div>

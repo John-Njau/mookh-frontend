@@ -16,7 +16,11 @@
             :key="event.id"
           >
             <!--First slide-->
-            <div class="carousel-item active" style="margin-bottom: 30px">
+            <div
+              class="carousel-item active"
+              data-bs-interval="10000"
+              style="margin-bottom: 30px"
+            >
               <div class="row">
                 <div class="col-md-8">
                   <div class="row">
@@ -104,17 +108,6 @@
                       </button>
                     </div>
                   </div>
-
-                  <!-- <div class="card mb-2">
-              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                   alt="Card image cap">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a class="btn btn-primary">Button</a>
-              </div>
-            </div> -->
                 </div>
 
                 <div class="col-md-4 clearfix d-none d-md-block">
@@ -122,13 +115,17 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="'http://127.0.0.1:8000' + event.profile_pic"
+                      :src="
+                        'https://mookh-africa.herokuapp.com/' +
+                        event.profile_pic
+                      "
                       alt="Card image cap"
                     />
                   </div>
                 </div>
               </div>
             </div>
+
             <!--/.First slide-->
           </div>
         </div>

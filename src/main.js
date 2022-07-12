@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 import 'bootstrap'
+import VueAgile from "vue-agile";
+Vue.use(VueAgile);
+
 
 // import '@fortawesome/fontawesome-free/js/all'
 import './assets/css/main.css';
@@ -11,7 +14,7 @@ import './assets/css/main.css';
 Vue.config.productionTip = false
 
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000'
+axios.defaults.baseURL = 'https://mookh-africa.herokuapp.com/'
 
 new Vue({
     router,

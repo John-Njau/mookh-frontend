@@ -4,6 +4,9 @@ import VueRouter from "vue-router";
 import HomeView from "../views/Landingpage/HomeView.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
+
+import Slider from "../views/Profile/slider.vue";
+
 import Contact from "../views/ContactView.vue";
 import LoginView from "../views/Auth/LoginView.vue";
 import SignUpView from "../views/Auth/SignUpView.vue";
@@ -37,6 +40,11 @@ const routes = [{
         component: LoginView,
     },
 
+    {
+        path: "/slider",
+        name: "slider",
+        component: Slider,
+    },
     {
         path: "/signup",
         name: "signup",
@@ -85,6 +93,16 @@ const routes = [{
         path: "/addevent",
         name: "addevent",
         component: newEventView,
+    },
+    {
+        path: "/Finance",
+        name: "Finance",
+        component: FinanceView,
+    },
+    {
+        path: "/Order",
+        name: "Order",
+        component: OrderView,
     },
 ];
 
