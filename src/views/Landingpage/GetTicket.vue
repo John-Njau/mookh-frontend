@@ -12,6 +12,7 @@
 
             Any way {{ event.id}}
             <p>ABOUT</p>
+            <p>{{ event.event_description }}</p>
           </div>
         </div>
         <div class="col-md">
@@ -23,6 +24,7 @@
       </div>
       <div class="" v-else>
         This happesms when the event is not found.
+        {{ event.id }}
       </div>
     </div>
   </div>
@@ -45,7 +47,7 @@ export default {
   mounted() {
     // Fetch tasks on page load
     this.$store.dispatch("getTickets", this.id);
-    this.getData();
+    // this.getData();
   },
   computed: {
     event() {
@@ -55,30 +57,30 @@ export default {
     //   return this.$store.getters.getTickets;
     // },
   },
-  methods: {
-    getData() {
-      axios
-        .get("/stores/event/public/")
-        .then((response) => {
-          this.events = response.data;
-        })
-        .catch((error) => {
-          // log the error
-          console.log(error);
-        });
-    },
-    getTicket() {
-      axios
-        .get("/stores/event/public/")
-        .then((response) => {
-          this.tickets = response.data;
-        })
-        .catch((error) => {
-          // log the error
-          console.log(error);
-        });
-    },
-  },
+  // methods: {
+  //   getData() {
+  //     axios
+  //       .get("/stores/event/public/")
+  //       .then((response) => {
+  //         this.events = response.data;
+  //       })
+  //       .catch((error) => {
+  //         // log the error
+  //         console.log(error);
+  //       });
+  //   },
+  //   getTicket() {
+  //     axios
+  //       .get("/stores/event/public/")
+  //       .then((response) => {
+  //         this.tickets = response.data;
+  //       })
+  //       .catch((error) => {
+  //         // log the error
+  //         console.log(error);
+  //       });
+  //   },
+  // },
 };
 </script>
 
