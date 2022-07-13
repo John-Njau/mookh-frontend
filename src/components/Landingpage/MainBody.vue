@@ -84,6 +84,7 @@
 
                   <div class="row frame">
                     <div class="col">
+                      <router-link to="/event/tickets/event.id">
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -94,6 +95,7 @@
                       >
                         <span>GET TICKETS</span>
                       </button>
+                      </router-link>
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -115,10 +117,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="
-                        'https://mookh-africa.herokuapp.com/' +
-                        event.profile_pic
-                      "
+                      :src="event.profile_pic"
                       alt="Card image cap"
                     />
                   </div>

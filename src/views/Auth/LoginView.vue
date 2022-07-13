@@ -96,7 +96,7 @@
                   />
                 </div>
                 <div class="notification text-danger" v-if="errors.length">
-                  <p v-for="error in errors" :key="error">{{ error }}</p>
+                  <p>{{ errors }}</p>
                 </div>
                 <!-- Submit button -->
                 <div class="form form-group" id="login">
@@ -177,7 +177,8 @@ export default {
             for (const property in error.response.data) {
               this.errors.push(`${property}: ${error.response.data[property]}`);
             }
-          } else {
+          } else 
+          {
             this.errors.push(error.message);
 
             console.log(JSON.stringify(error));
