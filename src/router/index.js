@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import HomeView from "../views/Landingpage/HomeView.vue";
-// import GetTicket from "../views/Landingpage/GetTicket.vue";
+import GetTicket from "../views/Landingpage/GetTicket.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
 
@@ -27,11 +27,11 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  // {
-  //   path: "/event/tickets/{{eventId}}",
-  //   name: "tickets",
-  //   component: GetTicket,
-  // },
+  {
+    path: "/event/tickets/",
+    name: "tickets",
+    component: GetTicket,
+  },
 
   {
     path: "/about",

@@ -1,18 +1,41 @@
 <template>
-  <h1>
-    hui
-  </h1>
+  <div class="ticket-page">
+    <Navbar></Navbar>
+    <div class="row">
+      <div class="col-md">
+        <div >
+          <p class="event-image">
+ <img src="" alt="">
+          </p>
+         
+          Any way
+          <p>ABOUT</p>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="text-light">
+          <h2>Ticket Details</h2>
+          new
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Navbar from "@/components/Landingpage/NavBar.vue";
+
 export default {
+  components: {
+    Navbar,
+  },
+
   data() {
     return {
       // tasks
       events: [],
       tickets: [],
-    
-    }
+    };
   },
   mounted() {
     // Fetch tasks on page load
@@ -22,7 +45,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })
@@ -33,7 +56,7 @@ export default {
     },
     getTicket() {
       axios
-        .get("/api/events/{{$route.params.id}}/tickets/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.tickets = response.data;
         })
@@ -41,13 +64,20 @@ export default {
           // log the error
           console.log(error);
         });
-    
-    }
+    },
   },
-
-}
+};
 </script>
 
 <style>
-
+.event-image {
+  /* height: 300px; */
+  /* width: 500px; */
+  background-color: #eee;
+  margin: auto auto;
+  height: 100vh;
+}
+.ticket-page {
+  background-color: rgba(8, 8, 8);
+}
 </style>

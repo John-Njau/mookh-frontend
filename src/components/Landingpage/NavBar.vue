@@ -21,7 +21,7 @@
             padding-right: 25px;
           "
         >
-          <a class="navbar-brand" href="#">mookh.</a>
+          <a class="navbar-brand" href="/">mookh.</a>
         </button>
 
         <button

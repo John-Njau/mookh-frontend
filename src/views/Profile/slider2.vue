@@ -23,11 +23,12 @@ export default {
     };
   },
   methods: {
-    getData() {
+    getEvent() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
+          console.log(this.events);
         })
         .catch((error) => {
           // log the error
