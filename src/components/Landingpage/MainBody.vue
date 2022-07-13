@@ -16,6 +16,7 @@
             :key="event.id"
           >
             <!--First slide-->
+            <p>{{ event.id}}</p>
             <div
               class="carousel-item active"
               data-bs-interval="10000"
@@ -84,18 +85,25 @@
 
                   <div class="row frame">
                     <div class="col">
-                      <router-link to="/event/tickets/event.id">
-                      <button
-                        class="custom-btn btn-3"
-                        style="
-                          margin-top: 25px;
-                          font-size: medium;
-                          width: 200px;
-                        "
+                      <router-link
+                        :to="{ name: 'tickets', params: { id: event.id } }"
+                        id="link"
+                       
                       >
-                        <span>GET TICKETS</span>
-                      </button>
+                      <!-- <p> to='event/tickets/:id=event.id'</p> -->
+                        <button
+                          class="custom-btn btn-3"
+                          style="
+                            margin-top: 25px;
+                            font-size: medium;
+                            width: 200px;
+                          "
+                        >
+                          <span>GET TICKETS</span>
+                        </button>
                       </router-link>
+                      <router-view></router-view>
+
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -150,7 +158,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })
@@ -162,6 +170,7 @@ export default {
   },
   mounted() {
     // Fetch tasks on page load
+    this.$route;
     this.getData();
   },
 };
