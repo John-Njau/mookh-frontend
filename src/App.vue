@@ -1,33 +1,24 @@
+
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/" class="">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
-    </nav>
+    <!-- <nav>
+      <router-link to="/Finance"></router-link>
+      <router-link to="/Order"></router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>|
+      <router-link to="/buyerprofile">BProfile</router-link>|
+      <router-link to="/contact">Contact</router-link>|
+      <router-link to="/login">Login</router-link> | -->
+    <!-- </nav> -->
     <router-view />
   </div>
 </template>
-
-
-<style>
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
-@import "~bootstrap/dist/css/bootstrap.css";
-
-@media only screen and (max-width: 991px) {
-  #login-card {
-    margin-top: 0;
-  }
-
-  #digital-content {
-    display: none;
-  }
-}
-</style>
 <script>
 import axios from "axios";
 
 export default {
+  name: "App",
+  components: {},
   data() {
     return {};
   },
@@ -46,3 +37,7 @@ export default {
   methods: {},
 };
 </script>
+<style >
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
+@import "~bootstrap/dist/css/bootstrap.css";
+</style>
