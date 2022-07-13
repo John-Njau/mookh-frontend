@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import HomeView from "../views/Landingpage/HomeView.vue";
+import GetTicket from "../views/Landingpage/GetTicket.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
 
@@ -16,116 +17,123 @@ import eventsView from "../views/events/eventsView";
 import newStoreView from "../views/events/newStoreView";
 import newEventView from "../views/events/newEventView";
 import FinanceView from "../views/reports/FinanceView";
-import OrderView from "../views/reports/OrderView"
-
+import OrderView from "../views/reports/OrderView";
 
 Vue.use(VueRouter);
 
-const routes = [{
-        path: "/",
-        name: "home",
-        component: HomeView,
-    },
+const routes = [
+  {
+    path: "/",
+    name: "home",
+    component: HomeView,
+  },
+  {
+    path: "/event/tickets",
+    name: "tickets",
+    component: GetTicket,
+  },
 
-    {
-        path: "/about",
-        name: "about",
-        component: () =>
-            import ("../views/AboutView.vue"),
-    },
+  {
+    path: "/about",
+    name: "about",
+    component: () => import("../views/AboutView.vue"),
+  },
 
-    {
-        path: "/login",
-        name: "login",
-        component: LoginView,
-    },
+  {
+    path: "/login",
+    name: "login",
+    component: LoginView,
+  },
 
-    {
-        path: "/slider",
-        name: "slider",
-        component: Slider,
-    },
-    {
-        path: "/signup",
-        name: "signup",
-        component: SignUpView,
-    },
-    {
-        path: "/reset-password",
-        name: "reset-password",
-        component: () =>
-            import ("../views/Auth/ResetView.vue"),
-    },
-    {
-        path: "/buyerprofile",
-        name: "buyerprofile",
-        component: BuyerProfile,
-    },
-    {
-        path: "/update/buyerprofile",
-        name: "updatebuyerprofile",
-        component: UpdateBuyerView,
-    },
-    {
-        path: "/contact",
-        name: "contact",
-        component: Contact,
-    },
+  {
+    path: "/slider",
+    name: "slider",
+    component: Slider,
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: SignUpView,
+  },
+  {
+    path: "/reset-password",
+    name: "reset-password",
+    component: () => import("../views/Auth/ResetView.vue"),
+  },
+  {
+    path: "/buyerprofile",
+    name: "buyerprofile",
+    component: BuyerProfile,
+  },
+  {
+    path: "/update/buyerprofile",
+    name: "updatebuyerprofile",
+    component: UpdateBuyerView,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: Contact,
+  },
 
-    {
-        path: "/stores",
-        name: "stores",
-        component: storesView,
-    },
+  {
+    path: "/stores",
+    name: "stores",
+    component: storesView,
+  },
 
-    {
-        path: "/events",
-        name: "events",
-        component: eventsView,
-    },
+  {
+    path: "/events",
+    name: "events",
+    component: eventsView,
+  },
 
-    {
-        path: "/addstore",
-        name: "addstore",
-        component: newStoreView,
-    },
-    {
-        path: "/addevent",
-        name: "addevent",
-        component: newEventView,
-    },
-    {
-        path: "/Finance",
-        name: "Finance",
-        component: FinanceView,
-    },
-    {
-        path: "/Order",
-        name: "Order",
-        component: OrderView,
-    },
+  {
+    path: "/addstore",
+    name: "addstore",
+    component: newStoreView,
+  },
+  {
+    path: "/addevent",
+    name: "addevent",
+    component: newEventView,
+    meta: {
+        requireLogin: true
+      }
+  },
+  {
+    path: "/Finance",
+    name: "Finance",
+    component: FinanceView,
+  },
+  {
+    path: "/Order",
+    name: "Order",
+    component: OrderView,
+  },
 ];
 
 const router = new VueRouter({
-    mode: "history",
-    base: process.env.BASE_URL,
-    routes,
+  mode: "history",
+  base: process.env.BASE_URL,
+  routes,
 });
 
 router.beforeEach((to, from, next) => {
-    if (
-        to.matched.some((record) => record.meta.requiresAuth) &&
-        !store.state.isAuthenticated
-    ) {
-        next({
-            name: "login",
-            path: "/login",
-            query: {
-                to: to.path
-            },
-        });
-    } else {
-        next();
-    }
+  if (
+    to.matched.some((record) => record.meta.requireLogin) &&
+    // !store.state.isAuthenticated
+    localStorage.getItem('token') === undefined
+  ) {
+    next({
+      name: "login",
+      
+      query: {
+        to: to.path,
+      },
+    });
+  } else {
+    next();
+  }
 });
 export default router;
