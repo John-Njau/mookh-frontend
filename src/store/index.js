@@ -17,7 +17,7 @@ export default new Vuex.Store({
   mutations: {
     getTickets({commit}, payload) {
       axios
-      .get(`/api/tickets/${{payload}}`)
+      .get(`/api/tickets/${payload}/`)
       .then(response => {
         commit('SET_TICKETS', response.data)
         console.log(response.data);
