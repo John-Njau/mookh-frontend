@@ -141,7 +141,7 @@
                   </svg>
                 </button>
               </div>
-              <input
+              <!-- <input
                 @change="uploadImage()"
                 type="file"
                 id="actual-btn"
@@ -149,7 +149,9 @@
               />
               <label for="actual-btn" class="mt-5 text-center"
                 >click or drop an image to upload</label
-              >
+              > -->
+              <input  type="file" id="actual-btn" accept="image/*"  @change="storeImage" >
+              <label for="actual-btn" class="mt-5 text-center"  >click or drop an image to upload</label>
             </div>
 
             <p>Upload an image at least 1000 x 1000 pixels</p>
@@ -223,10 +225,19 @@ export default {
         });
     },
   },
-  mounted() {
-    this.Stores();
+  storeImage(e) {
+    // const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(this.storeImage);
+    reader.onload = (e) => {
+      this.storeImage = e.target.result;
+      console.log(this.storeImage);
+    };
+    
   },
-};
+  
+
+  };
 </script>
 
 

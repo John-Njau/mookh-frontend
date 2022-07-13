@@ -18,6 +18,7 @@
             <!--First slide-->
             <div
               class="carousel-item active"
+              data-bs-interval="10000"
               style="margin-bottom: 30px"
             >
               <div class="row">
@@ -83,6 +84,7 @@
 
                   <div class="row frame">
                     <div class="col">
+                      <router-link to="/event/tickets/event.id">
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -93,6 +95,7 @@
                       >
                         <span>GET TICKETS</span>
                       </button>
+                      </router-link>
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -114,13 +117,14 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="'http://127.0.0.1:8000' + event.profile_pic"
+                      :src="event.profile_pic"
                       alt="Card image cap"
                     />
                   </div>
                 </div>
               </div>
             </div>
+
             <!--/.First slide-->
           </div>
         </div>
