@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import HomeView from "../views/Landingpage/HomeView.vue";
-import GetTicket from "../views/Landingpage/GetTicket.vue";
+// import GetTicket from "../views/Landingpage/GetTicket.vue";
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
 
@@ -27,18 +27,26 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  {
-    path: "/event/tickets",
-    name: "tickets",
-    component: GetTicket,
-  },
+  // {
+  //   path: "/event/tickets/{{eventId}}",
+  //   name: "tickets",
+  //   component: GetTicket,
+  // },
 
   {
     path: "/about",
     name: "about",
     component: () => import("../views/AboutView.vue"),
   },
-
+  {
+    path: "/event/tickets/:id(\\d+)",
+    name: "tickets",
+    component: () => import("../views/Landingpage/GetTicket.vue"),
+    props: true,
+    meta: {
+      requireLogin: true,
+    },
+  },
   {
     path: "/login",
     name: "login",
@@ -98,8 +106,8 @@ const routes = [
     name: "addevent",
     component: newEventView,
     meta: {
-        requireLogin: true
-      }
+      requireLogin: true,
+    },
   },
   {
     path: "/Finance",
@@ -123,11 +131,11 @@ router.beforeEach((to, from, next) => {
   if (
     to.matched.some((record) => record.meta.requireLogin) &&
     // !store.state.isAuthenticated
-    localStorage.getItem('token') === undefined
+    localStorage.getItem("token") === undefined
   ) {
     next({
       name: "login",
-      
+
       query: {
         to: to.path,
       },
