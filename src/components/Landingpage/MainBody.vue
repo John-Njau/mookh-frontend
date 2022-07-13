@@ -12,7 +12,7 @@
           <div
             class="carousel-inner"
             role="listbox"
-            v-for="event in events"
+            v-for="event in events.results"
             :key="event.id"
           >
             <!--First slide-->
@@ -28,7 +28,9 @@
                       class="small col-1"
                       style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
                     >
-                      <h5 style="font-size: medium">{{ event.day }}</h5>
+                      <h5 style="font-size: medium">
+                        {{ event.start_date}}
+                      </h5>
                       <h3 style="font-weight: 600">{{ event.date }}</h3>
                       <h5 style="font-size: medium">{{ event.month }}</h5>
                     </div>
@@ -55,9 +57,10 @@
                             style="margin-right: 8px"
                             aria-hidden="true"
                           ></i
-                          >{{ event.location }}
+                          >{{ event.event_venue }}
                         </h5>
                       </div>
+                      <div v-html="event.event_description"></div>
                     </div>
 
                     <div class="row">
@@ -78,23 +81,23 @@
 
                   <div class="row">
                     <div class="col">
-                      {{ event.decription }}
+                      {{ event.event_decription }}
                     </div>
                   </div>
 
                   <div class="row frame">
                     <div class="col">
                       <router-link to="/event/tickets/event.id">
-                      <button
-                        class="custom-btn btn-3"
-                        style="
-                          margin-top: 25px;
-                          font-size: medium;
-                          width: 200px;
-                        "
-                      >
-                        <span>GET TICKETS</span>
-                      </button>
+                        <button
+                          class="custom-btn btn-3"
+                          style="
+                            margin-top: 25px;
+                            font-size: medium;
+                            width: 200px;
+                          "
+                        >
+                          <span>GET TICKETS</span>
+                        </button>
                       </router-link>
                       <button
                         class="custom-btn btn-3"
@@ -117,7 +120,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="event.profile_pic"
+                      :src="event.event_poster"
                       alt="Card image cap"
                     />
                   </div>
@@ -137,6 +140,7 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   name: "BodyCont",
@@ -148,9 +152,20 @@ export default {
     };
   },
   methods: {
+
+    // moment().format("MMM Do YY"),
+
+    formatted() {
+      Vue.filter("formatDate", function (start_date) {
+        if (start_date) {
+          return moment(String(start_date)).format("MMM Do YY");
+        }
+      });
+    },
+
     getData() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })
@@ -164,6 +179,9 @@ export default {
     // Fetch tasks on page load
     this.getData();
   },
+
+ 
+  
 };
 </script>
 
