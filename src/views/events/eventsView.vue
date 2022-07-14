@@ -98,7 +98,7 @@ export default{
     },
     methods:{
         get_event(){
-            axios.get('/api/events').then(response =>{this.events=response.data})
+            axios.get('/stores/event/public').then(response =>{this.events=response.data})
         }
     },
     mounted(){

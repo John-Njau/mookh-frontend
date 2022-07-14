@@ -21,7 +21,7 @@
             padding-right: 25px;
           "
         >
-          <a class="navbar-brand" href="#">mookh.</a>
+          <a class="navbar-brand" href="/">mookh.</a>
         </button>
 
         <button
@@ -74,11 +74,13 @@
                 "
               >
                 <i class="fa-regular fa-chart-line-up"></i>
+                <router-link to="/events" id="routed">
                 <p style="font-size: 20px">Start selling with us</p>
                 <p style="font-size: 15px">
                   Begin your e-commerce journey with our simple to use,
                   feature-packed dashboard and marketplace.
                 </p>
+                </router-link>
               </ul>
             </li>
             <!-- <li v-if="$store.state.isAuthenticated">
@@ -116,17 +118,18 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-                <li v-if="$store.state.isAuthenticated">
-                  <router-link to="/" class="dropdown-item"
+                <template v-if="$store.state.isAuthenticated">
+                  <router-link to="/buyerprofile" class="dropdown-item"
                     >PROFILE</router-link
                   >
                   <router-link to="/" class="dropdown-item">LOGOUT</router-link>
-                </li>
-                <li v-else>
-                  <router-link to="/login" class="dropdown-item"
+                </template>
+                <template v-else>
+                  <router-link to="/" class="dropdown-item"
                     >LOGIN</router-link
                   >
-                </li>
+                </template>
+
               </ul>
             </li>
           </ul>
@@ -160,6 +163,8 @@
         </div>
       </div>
     </nav>
+    <router-view :key="$route.name" />
+
   </div>
 </template>
 
@@ -222,6 +227,10 @@
       height: 2.4vw;
     }
   }
+}
+#routed{
+  color: #292825;
+  text-decoration: none;
 }
 </style>
 
