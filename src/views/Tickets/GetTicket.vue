@@ -1,14 +1,10 @@
 <template>
   <div class="ticket-page">
     <Navbar></Navbar>
-    <!-- <p>
-      Event Id: <span class="id"></span><span>{{ id }}</span>
-    </p> -->
-
     <div class="container mt-5" v-if="event">
       <div class="row">
         {{ event.length }}
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div>
             <p class="event-image">
               <img class="img-fluid" :src="event.event_poster" alt="" />
@@ -18,36 +14,38 @@
             <p v-html="event.event_description"></p>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
           <div class="">
             <div class="row">
               <div
                 class="small col-1"
                 style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
               >
-                <h5 style="font-size: medium">{{ event.start_date }}</h5>
-                <!-- <h3 style="font-weight: 600">{{ event.start_date.date }}</h3>
-                <h5 style="font-size: medium">{{ event.start_date.month }}</h5> -->
+                <h4 style="font-size: medium">{{ event.start_date | date }}</h4>
               </div>
               <div class="col text-center" style="padding-top: 20px">
-                <h2>
+                <h3>
                   <strong>{{ event.event_name }}</strong>
-                </h2>
+                </h3>
               </div>
             </div>
-            <p>
+            <p class="mt-4">
               <i
                 class="fa fa-map-marker"
                 style="margin-right: 8px"
                 aria-hidden="true"
               ></i>
-              <strong>{{ event.event_venue }}</strong>
+              <small>
+                <strong>{{ event.event_venue }}</strong>
+              </small>
             </p>
             <p>
-              {{ event.tickets.start_at }}-<span>{{ event.end_date }}</span>
-            </p>
-            <p>
-              {{ event.tickets.end_at }}-<span>{{ event.end_date }}</span>
+              <i class="fa-solid fa-calendar"></i>
+              <small>
+                {{ event.start_date | date }}-<span>{{
+                  event.end_date | date
+                }}</span>
+              </small>
             </p>
 
             <p>
@@ -56,25 +54,34 @@
 
             <p class="ms-3">Share</p>
 
-            <h6>TICKETS AVAILABLE</h6>
-            <i class="fa-regular fa-chart-line-up"></i>
+            <h6>
+              TICKETS AVAILABLE
+              <span>
+                <i class="fa-solid fa-horizontal-rule"></i>
+              </span>
+            </h6>
 
-            <div class="row">
+            <div class="row  d-flex flex-wrap mt-4">
               <div class="" v-for="ticket in event.tickets" :key="ticket.id">
-                <div class="card">
+                <div class="card ">
                   <div class="col">
-                    <p> <strong>{{ ticket.ticket_name }}</strong></p>
+                    <p>
+                      <strong>{{ ticket.ticket_name }}</strong>
+                    </p>
                     <p>{{ ticket.ticket_price }}</p>
                     <p>{{ ticket.prices }}</p>
                     <p>
                       {{ ticket.prices.price_currency }}
-                      <!-- {{ ticket.prices.price }} -->
+                      {{ ticket.prices.price }}
                     </p>
                     <h6>Valid from</h6>
-                    <p>{{ ticket.start_at }} - {{ ticket.end_at }}</p>
-                    <p>Starts at:<br />{{ ticket.start_at }}</p>
+                    <p>
+                      {{ ticket.start_at | date }} - {{ ticket.end_at | date }}
+                    </p>
+                    <p>Starts at:<br />{{ ticket.start_at | date }}</p>
                   </div>
                 </div>
+                <br />
               </div>
             </div>
             <div>
@@ -189,7 +196,6 @@ export default {
 /* } */
 
 .small {
-  /*border: 1px solid black;*/
   box-shadow: 2px 1px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin-left: 30px;
@@ -197,9 +203,11 @@ export default {
   padding-right: 0px;
 }
 .card {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  flex-direction: row;
- padding: 5px;
+  width: 30vw;
+  border-radius: 5px;
+  padding: 30px;
+}
+.fa-horizontal-rule {
+  background-color: #ffc107;
 }
 </style>

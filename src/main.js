@@ -6,12 +6,12 @@ import axios from 'axios'
 import 'bootstrap'
 import VueAgile from "vue-agile";
 import './assets/css/main.css';
-
+import DateFilter from './filters/date'
 
 
 Vue.use(VueAgile);
 
-// import '@fortawesome/fontawesome-free/js/all'
+Vue.filter('date', DateFilter)
 
 
 Vue.config.productionTip = false

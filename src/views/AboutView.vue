@@ -4,7 +4,7 @@
     <p>Data from django backend</p>
     <br>
     <div v-for="item in events.results" :key="item.id">
-      <h3>{{ item.start_date }}</h3>
+      <h3>{{ item.start_date | date}}</h3>
       <small
         ><strong>{{ item.price }} Ksh.</strong></small
       >
