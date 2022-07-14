@@ -1,37 +1,11 @@
 <template>
-  <div>
-    <div
-      class="card"
-      style="width: 18rem"
-      v-for="event in events"
-      :key="event.id"
-    >
-      <img src="" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <div>
-          <div v-if="event.staff_favourite">
-            <p style="margin-bottom: 30px">{{ event.event_name }}</p>
-            <p>{{ event.day }},{{ event.month }}{{ event.date }}</p>
-            <p>{{ event.location }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" style="width: 18rem">
-      <img src="" class="card-img-top" alt="..." />
-
-      <div class="card-body">
-        <div
-          class="”active-users”"
-          v-for="event in events"
-          :key="event.country"
-        >
-          <div v-if="event.country == 'Uganda' && event.staff_favourite">
-            <p style="margin-bottom: 30px">{{ event.event_name }}</p>
-            <p>{{ event.day }},{{ event.month }}{{ event.date }}</p>
-            <p>{{ event.location }}</p>
-          </div>
+  <div class="dec">
+    <div class="card-deck" v-for="event in events.results" :key="event.id">
+      <div class="card">
+        <img class="card-img-top" :src="event.event_poster" alt="" />
+        <div class="card-body">
+          <h6 style="font-size: medium">{{ event.event_name }}</h6>
+          <p class="">{{ event.event_venue }}</p>
         </div>
       </div>
     </div>
@@ -42,8 +16,8 @@
 import axios from "axios";
 
 export default {
-  name: "FeaturedStafff",
-  components: {},
+  name: "BodyCont",
+
   data() {
     return {
       // tasks
@@ -64,34 +38,31 @@ export default {
     },
   },
   mounted() {
+    // Fetch tasks on page load
+    this.$route;
     this.getData();
-  },
-
-  methods: {
-    getData() {
-      axios
-        .get("/stores/event/public/", {
-          headers: {
-            "Content-Type": "image/jpg",
-            Authorization: "Token" + localStorage.getItem("token"),
-          },
-        })
-        .then((response) => {
-          this.events = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
   },
 };
 </script>
 
-<style scoped>
-.card {
-  margin-bottom: 30px;
-  margin-left: 100px;
-  border-radius: 20px 20px 0px 0px;
-  border: 2px solid black;
+<style scoped lang='scss'>
+.dec {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  .card {
+    width: 25vw;
+    height: 33vw;
+    margin-bottom: 30px;
+    margin-left: 3vw;
+    border-radius: 20px;
+    border: 1px solid rgb(189, 186, 186);
+    img {
+      height: 24vw;
+      width: 100%;
+      border-radius: 20px 20px 0px 0px;
+    }
+  }
 }
 </style>
