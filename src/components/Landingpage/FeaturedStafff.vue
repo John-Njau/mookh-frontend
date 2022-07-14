@@ -4,8 +4,8 @@
       <div class="card">
         <img class="card-img-top" :src="event.event_poster" alt="" />
         <div class="card-body">
-          <p class="">{{ event.event_venue }}</p>
           <h6 style="font-size: medium">{{ event.event_name }}</h6>
+          <p class="">{{ event.event_venue }}</p>
         </div>
       </div>
     </div>
@@ -49,13 +49,15 @@ export default {
 .dec {
   display: flex !important;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   .card {
     width: 25vw;
-    height: 35vw;
+    height: 33vw;
     margin-bottom: 30px;
     margin-left: 3vw;
     border-radius: 20px;
-    border: 1px solid grey;
+    border: 1px solid rgb(189, 186, 186);
     img {
       height: 24vw;
       width: 100%;
