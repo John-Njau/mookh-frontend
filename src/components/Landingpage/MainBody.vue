@@ -12,11 +12,11 @@
           <div
             class="carousel-inner"
             role="listbox"
-            v-for="event in events"
+            v-for="event in events.results"
             :key="event.id"
           >
             <!--First slide-->
-            <p>{{ event.id}}</p>
+            <!-- <p>{{ event.id }}</p> -->
             <div
               class="carousel-item active"
               data-bs-interval="10000"
@@ -56,9 +56,10 @@
                             style="margin-right: 8px"
                             aria-hidden="true"
                           ></i
-                          >{{ event.event_venue}}
+                          >{{ event.event_venue }}
                         </h5>
                       </div>
+                      
                     </div>
 
                     <div class="row">
@@ -75,6 +76,9 @@
                         </h5>
                       </div>
                     </div>
+                     <div v-html="event.event_description">
+
+                      </div>
                   </div>
 
                   <div class="row">
@@ -88,9 +92,8 @@
                       <router-link
                         :to="{ name: 'tickets', params: { id: event.id } }"
                         id="link"
-                       
                       >
-                      <!-- <p> to='event/tickets/:id=event.id'</p> -->
+                        <!-- <p> to='event/tickets/:id=event.id'</p> -->
                         <button
                           class="custom-btn btn-3"
                           style="

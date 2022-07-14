@@ -216,7 +216,7 @@ export default {
     Events() {   
         // const formData = new FormData();
         // formData.append("file", e.target.files[0]); 
-        axios.post("/api/events/", {
+        axios.post("/stores/event/public/", {
             event_name: this.event_name,
             profile_pic: this.profile_pic,
             country: this.country,

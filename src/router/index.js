@@ -2,16 +2,18 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 
 import HomeView from "../views/Landingpage/HomeView.vue";
-// import GetTicket from "../views/Landingpage/GetTicket.vue";
+
 import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
+
+import Checkout from "../views/Tickets/Checkout.vue";
 
 import Slider from "../views/Profile/slider.vue";
 
 import Contact from "../views/ContactView.vue";
 import LoginView from "../views/Auth/LoginView.vue";
 import SignUpView from "../views/Auth/SignUpView.vue";
-
+import ErrorPage from "../views/ErrorPageView";
 import storesView from "../views/events/storesView";
 import eventsView from "../views/events/eventsView";
 import newStoreView from "../views/events/newStoreView";
@@ -27,11 +29,6 @@ const routes = [
     name: "home",
     component: HomeView,
   },
-  // {
-  //   path: "/event/tickets/{{eventId}}",
-  //   name: "tickets",
-  //   component: GetTicket,
-  // },
 
   {
     path: "/about",
@@ -39,13 +36,18 @@ const routes = [
     component: () => import("../views/AboutView.vue"),
   },
   {
-    path: "/event/tickets/:id(\\d+)",
+    path: "/event/tickets/:id",
     name: "tickets",
-    component: () => import("../views/Landingpage/GetTicket.vue"),
+    component: () => import("../views/Tickets/GetTicket.vue"),
     props: true,
     meta: {
       requireLogin: true,
     },
+  },
+  {
+    path:"/checkout",
+    name:"checkout",
+    component:Checkout,
   },
   {
     path: "/login",
@@ -118,6 +120,12 @@ const routes = [
     path: "/Order",
     name: "Order",
     component: OrderView,
+  },
+  //  catchall, 404 page
+  {
+    path: "/:catchAll(.*)",
+    name: "NotFound",
+    component: ErrorPage,
   },
 ];
 

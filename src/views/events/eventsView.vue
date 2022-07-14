@@ -52,19 +52,32 @@
         </div>
       </div>
     </header>
-    <div class="row mt-4">
-      <div class="col-md-6" v-if="events">
-        <div v-for="event in events" :key="event.id">
+    <div class="row  mt-4">
+        <div class="col-lg-12 bg-danger" v-if="events">
+          <div class="carevent" v-for="event in events.results" :key="event.id">
           <div class="card">
-            <p>{{ event.event_name }}</p>
-            <p>{{ event.event_description }}</p>
-            <p>{{ event.event_venue}}</p>
+            <h5>
+              <b>{{ event.event_name }}</b>
+            </h5>
+            <!-- <div v-html="event.event_description"> </div>         -->
             <img :src="event.event_poster" alt="no image" />
-          </div>
+            <p>
+              <b>
+                <i
+                  class="fa fa-map-marker"
+                  style="margin-right: 8px"
+                  aria-hidden="true"
+                ></i>   {{ event.event_venue }}
+              </b>
+            </p>
+            <p>
+              <i class="far fa-clock" style="margin-right: 8px"></i>
+              {{ event.start_date }}
+            </p>
+          </div> <br>
         </div>
       </div>
-      <div class="col md-6" v-else>
-        <!-- <img src="" alt=""> -->
+      <div class="col-lg-12" v-else>
         <img src="smsbox.svg" alt="" />
         <p>No events available</p>
         <router-link to="/addevent" class="btn btn-md">ADD EVENT</router-link>
@@ -95,9 +108,15 @@ export default {
   },
   methods: {
     get_event() {
-      axios.get("/stores/event/public/").then((response) => {
-        this.events = response.data;
-      });
+      axios
+        .get("/stores/event/public/")
+        .then((response) => {
+          this.events = response.data;
+        })
+        .catch((error) => {
+          // log the error
+          console.log(error);
+        });
     },
   },
   mounted() {
@@ -195,5 +214,14 @@ select {
 }
 select:hover {
   border-color: #f8fa29 !important;
+}
+.carevent {
+display: flex !important;
+flex-wrap: wrap !important;
+flex-direction: row;
+}
+.card{
+  width: 30vw;
+
 }
 </style>
