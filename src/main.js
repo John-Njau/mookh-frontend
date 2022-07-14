@@ -17,7 +17,7 @@ Vue.use(VueAgile);
 Vue.config.productionTip = false
 
 
-axios.defaults.baseURL = 'https://api.mookh.com'
+axios.defaults.baseURL = 'https://api.mookh.com/'
 
 new Vue({
     router,

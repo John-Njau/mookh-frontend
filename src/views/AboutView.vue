@@ -45,7 +45,7 @@ export default {
   methods: {
     getEvents() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })

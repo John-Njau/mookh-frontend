@@ -59,7 +59,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })
