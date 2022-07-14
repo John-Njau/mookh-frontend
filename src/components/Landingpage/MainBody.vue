@@ -8,136 +8,128 @@
       >
         <!--Slides-->
 
-        <div>
+        <!-- <div> -->
+        <div class="carousel-inner" role="listbox">
+          <!--First slide-->
           <div
-            class="carousel-inner"
-            role="listbox"
-            v-for="event in events.results"
+            class="carousel-item"
+            v-for="(event, index) in events.results"
             :key="event.id"
+            :class="{ active: index == 0 }"
+            style="margin-bottom: 30px"
           >
-            <!--First slide-->
-            <div
-              class="carousel-item active"
-              data-bs-interval="10000"
-              style="margin-bottom: 30px"
-            >
-              <div class="row">
-                <div class="col-md-8">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="row">
+                  <div
+                    class="small col-1"
+                    style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
+                  >
+                    <h5 style="font-size: medium">{{ event.day }}</h5>
+                    <h3 style="font-weight: 600">{{ event.date }}</h3>
+                    <h5 style="font-size: medium">{{ event.month }}</h5>
+                  </div>
+                  <div class="col text-center" style="padding-top: 20px">
+                    <h2>
+                      <strong>{{ event.name }}</strong>
+                    </h2>
+                  </div>
+                </div>
+
+                <div style="padding-bottom: 28px">
                   <div class="row">
-                    <div
-                      class="small col-1"
-                      style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
-                    >
-                      <h5 style="font-size: medium">{{ event.day }}</h5>
-                      <h3 style="font-weight: 600">{{ event.date }}</h3>
-                      <h5 style="font-size: medium">{{ event.month }}</h5>
-                    </div>
-                    <div class="col text-center" style="padding-top: 20px">
-                      <h2>
-                        <strong>{{ event.event_name }}</strong>
-                      </h2>
-                    </div>
-                  </div>
-
-                  <div style="padding-bottom: 28px">
-                    <div class="row">
-                      <div class="col-7">
-                        <h5
-                          style="
-                            font-size: 15px;
-                            padding-top: 30px;
-                            margin-left: 0px;
-                            padding-right: 150px;
-                          "
-                        >
-                          <i
-                            class="fa fa-map-marker"
-                            style="margin-right: 8px"
-                            aria-hidden="true"
-                          ></i
-                          >{{ event.event_venue }}
-                        </h5>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-7">
-                        <h5
-                          style="
-                            font-size: 15px;
-                            margin-left: 0px;
-                            padding-right: 220px;
-                          "
-                        >
-                          <i class="far fa-clock" style="margin-right: 8px"></i
-                          >{{ event.time }}
-                        </h5>
-                      </div>
-                    </div>
-                    <div v-html="event.event_description"></div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col">
-                      {{ event.event_decription }}
-                    </div>
-                  </div>
-
-                  <div class="row frame">
-                    <div class="col">
-                      <router-link
-                        :to="{ name: 'tickets', params: { id: event.id } }"
-                        id="link"
+                    <div class="col-7">
+                      <h5
+                        style="
+                          font-size: 15px;
+                          padding-top: 30px;
+                          margin-left: 0px;
+                          padding-right: 150px;
+                        "
                       >
-                        <!-- <p> to='event/tickets/:id=event.id'</p> -->
-                        <button
-                          class="custom-btn btn-3"
-                          style="
-                            margin-top: 25px;
-                            font-size: medium;
-                            width: 200px;
-                          "
-                        >
-                          <span>GET TICKETS</span>
-                        </button>
-                      </router-link>
-                      <router-view></router-view>
+                        <i
+                          class="fa fa-map-marker"
+                          style="margin-right: 8px"
+                          aria-hidden="true"
+                        ></i
+                        >{{ event.event_venue }}
+                      </h5>
+                    </div>
+                  </div>
 
+                  <div class="row">
+                    <div class="col-7">
+                      <h5
+                        style="
+                          font-size: 15px;
+                          margin-left: 0px;
+                          padding-right: 220px;
+                        "
+                      >
+                        <i class="far fa-clock" style="margin-right: 8px"></i
+                        >{{ event.time }}
+                      </h5>
+                    </div>
+                  </div>
+                  <div v-html="event.event_description"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col">
+                    {{ event.event_decription }}
+                  </div>
+                </div>
+
+                <div class="row frame">
+                  <div class="col">
+                    <router-link
+                      :to="{ name: 'tickets', params: { id: event.id } }"
+                      id="link"
+                    >
+                      <!-- <p> to='event/tickets/:id=event.id'</p> -->
                       <button
                         class="custom-btn btn-3"
                         style="
-                          margin-left: 20px;
                           margin-top: 25px;
-                          margin-right: 300px;
-                          width: 200px;
                           font-size: medium;
+                          width: 200px;
                         "
                       >
-                        <span>ADD TO CALENDER</span>
+                        <span>GET TICKETS</span>
                       </button>
-                    </div>
-                  </div>
-                </div>
+                    </router-link>
+                    <router-view></router-view>
 
-                <div class="col-md-4 clearfix d-none d-md-block">
-                  <div class="card mb-2">
-                    <img
-                      class="card-img-top"
-                      style="height: 380px"
-                      :src="event.event_poster"
-                      alt="Card image cap"
-                    />
+                    <button
+                      class="custom-btn btn-3"
+                      style="
+                        margin-left: 20px;
+                        margin-top: 25px;
+                        margin-right: 300px;
+                        width: 200px;
+                        font-size: medium;
+                      "
+                    >
+                      <span>ADD TO CALENDER</span>
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!--/.First slide-->
+              <div class="col-md-4 clearfix d-none d-md-block">
+                <div class="card mb-2">
+                  <img
+                    class="card-img-top"
+                    style="height: 380px"
+                    :src="event.event_poster"
+                    alt="Card image cap"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <!--/.Slides-->
       </div>
-      <!--/.Carousel Wrapper-->
     </div>
   </div>
 </template>
@@ -290,5 +282,8 @@ body {
   border-radius: 0px;
   width: 200px;
   background-color: #ffff00;
+}
+.ind-btn {
+  filter: invert(100%);
 }
 </style>
