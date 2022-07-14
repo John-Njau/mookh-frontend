@@ -3,8 +3,8 @@
     <h1>This is an about page</h1>
     <p>Data from django backend</p>
     <br>
-    <div v-for="item in events" :key="item.id">
-      <h3>{{ item.title }}</h3>
+    <div v-for="item in events.results" :key="item.id">
+      <h3>{{ item.start_date | date}}</h3>
       <small
         ><strong>{{ item.price }} Ksh.</strong></small
       >
