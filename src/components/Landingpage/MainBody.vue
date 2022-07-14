@@ -56,7 +56,7 @@
                             style="margin-right: 8px"
                             aria-hidden="true"
                           ></i
-                          >{{ event.location }}
+                          >{{ event.event_venue}}
                         </h5>
                       </div>
                     </div>
@@ -79,7 +79,7 @@
 
                   <div class="row">
                     <div class="col">
-                      {{ event.decription }}
+                      {{ event.event_decription }}
                     </div>
                   </div>
 
@@ -125,7 +125,7 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="event.profile_pic"
+                      :src="event.event_poster"
                       alt="Card image cap"
                     />
                   </div>
