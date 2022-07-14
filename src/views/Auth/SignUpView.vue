@@ -243,7 +243,7 @@ export default {
 
       if (!this.errors.length) {
         axios
-          .post("/api/v1/users/", {
+          .post("https://mookh-africa.herokuapp.com/api/v1/users/", {
             first_name: this.firstName,
             last_name: this.lastName,
             email: this.email,

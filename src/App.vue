@@ -20,7 +20,11 @@ export default {
   name: "App",
   components: {},
   data() {
-    return {};
+    return {
+      cart:{
+        items: []
+      }
+    };
   },
   beforeCreate() {
     this.$store.commit("initializeStore");
