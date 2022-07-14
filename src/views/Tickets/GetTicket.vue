@@ -115,6 +115,14 @@
               >
                 <span>QUICK BUY</span>
               </a>
+              <a
+                role="button"
+                href="https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+surface-send&type=phone_number&app_absent=0"
+                class="ticket-btn btn btn-3"
+                style="margin-top: 25px; font-size: medium; width: 200px"
+              >
+                <span>Buy via Whatsapp</span>
+              </a>
             </div>
 
             <!-- {{ event.tickets }} -->

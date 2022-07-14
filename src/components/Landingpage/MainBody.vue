@@ -117,14 +117,18 @@
               </div>
 
               <div class="col-md-4 clearfix d-none d-md-block">
-                <div class="card mb-2">
-                  <img
-                    class="card-img-top"
-                    style="height: 380px"
-                    :src="event.event_poster"
-                    alt="Card image cap"
-                  />
-                </div>
+               
+                  <div class="card mb-2">
+                    <img
+                      class="card-img-top"
+                      style="height: 380px"
+                      :src="event.event_poster"
+                      alt="Card image cap"
+                    />
+                    
+                  </div>
+                
+                <router-view></router-view>
               </div>
             </div>
           </div>

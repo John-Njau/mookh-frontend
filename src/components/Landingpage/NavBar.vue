@@ -122,10 +122,10 @@
                   <router-link to="/buyerprofile" class="dropdown-item"
                     >PROFILE</router-link
                   >
-                  <router-link to="/" class="dropdown-item">LOGOUT</router-link>
+                  <router-link to="/login" class="dropdown-item">LOGOUT</router-link>
                 </template>
                 <template v-else>
-                  <router-link to="/login" class="dropdown-item"
+                  <router-link to="/" class="dropdown-item"
                     >LOGIN</router-link
                   >
                 </template>
