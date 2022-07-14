@@ -1,7 +1,4 @@
 
-<script>
-
-</script>
 <template>
   <div id="app">
     <!-- <nav>
@@ -40,7 +37,7 @@ export default {
   methods: {},
 };
 </script>
-<style>
+<style >
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
 @import "~bootstrap/dist/css/bootstrap.css";
 </style>

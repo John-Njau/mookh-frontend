@@ -12,12 +12,14 @@
           <div
             class="carousel-inner"
             role="listbox"
-            v-for="event in events"
+            v-for="event in events.results"
             :key="event.id"
           >
             <!--First slide-->
+            <p>{{ event.id }}</p>
             <div
               class="carousel-item active"
+              data-bs-interval="10000"
               style="margin-bottom: 30px"
             >
               <div class="row">
@@ -54,9 +56,10 @@
                             style="margin-right: 8px"
                             aria-hidden="true"
                           ></i
-                          >{{ event.location }}
+                          >{{ event.event_venue }}
                         </h5>
                       </div>
+                      
                     </div>
 
                     <div class="row">
@@ -73,26 +76,37 @@
                         </h5>
                       </div>
                     </div>
+                     <div v-html="event.event_description">
+
+                      </div>
                   </div>
 
                   <div class="row">
                     <div class="col">
-                      {{ event.decription }}
+                      {{ event.event_decription }}
                     </div>
                   </div>
 
                   <div class="row frame">
                     <div class="col">
-                      <button
-                        class="custom-btn btn-3"
-                        style="
-                          margin-top: 25px;
-                          font-size: medium;
-                          width: 200px;
-                        "
+                      <router-link
+                        :to="{ name: 'tickets', params: { id: event.id } }"
+                        id="link"
                       >
-                        <span>GET TICKETS</span>
-                      </button>
+                        <!-- <p> to='event/tickets/:id=event.id'</p> -->
+                        <button
+                          class="custom-btn btn-3"
+                          style="
+                            margin-top: 25px;
+                            font-size: medium;
+                            width: 200px;
+                          "
+                        >
+                          <span>GET TICKETS</span>
+                        </button>
+                      </router-link>
+                      <router-view></router-view>
+
                       <button
                         class="custom-btn btn-3"
                         style="
@@ -114,13 +128,14 @@
                     <img
                       class="card-img-top"
                       style="height: 380px"
-                      :src="'http://127.0.0.1:8000' + event.profile_pic"
+                      :src="event.event_poster"
                       alt="Card image cap"
                     />
                   </div>
                 </div>
               </div>
             </div>
+
             <!--/.First slide-->
           </div>
         </div>
@@ -146,7 +161,7 @@ export default {
   methods: {
     getData() {
       axios
-        .get("/api/events/")
+        .get("/stores/event/public/")
         .then((response) => {
           this.events = response.data;
         })
@@ -158,6 +173,7 @@ export default {
   },
   mounted() {
     // Fetch tasks on page load
+    this.$route;
     this.getData();
   },
 };
