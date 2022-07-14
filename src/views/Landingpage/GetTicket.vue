@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="ticket-page">
     <Navbar></Navbar>
@@ -10,7 +12,7 @@
               <img :src="event.event_poster" alt="" />
             </p>
 
-            Any way {{ event.id}}
+            Any way {{ event.id }}
             <p>ABOUT</p>
             <p>{{ event.event_description }}</p>
           </div>
@@ -38,7 +40,7 @@ export default {
   components: {
     Navbar,
   },
-  props:["id"],
+  props: ["id"],
   data() {
     return {
       tickets: [],
@@ -52,7 +54,7 @@ export default {
   computed: {
     event() {
       return this.$store.state.event;
-    }
+    },
     // tickets() {
     //   return this.$store.getters.getTickets;
     // },

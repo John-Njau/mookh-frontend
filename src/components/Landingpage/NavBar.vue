@@ -132,7 +132,15 @@
               </ul>
             </li>
           </ul>
-          <i class="fa-solid fa-cart-shopping" style="margin-left: 15px"></i>
+          <li>
+            <a href="/cart">
+              <i
+                class="fa-solid fa-cart-shopping"
+                style="margin-left: 15px"
+              ></i>
+              {{ cartTotalLength }}
+            </a>
+          </li>
           <a
             name=""
             id="whatsapp"
@@ -235,8 +243,29 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: "Navbar",
   components: {},
+  data() {
+    return {
+      cart: {
+        items: [],
+      },
+    };
+  },
+  mounted() {
+    this.$store.state.cart;
+  },
+  computed: {
+    cartTotalLength() {
+      let totalLength = 0;
+
+      for (let i = 0; i < this.cart.items.length; i++) {
+        totalLength += this.cart.items[i].quantity;
+      }
+
+      return totalLength;
+    },
+  },
 };
 </script>
 

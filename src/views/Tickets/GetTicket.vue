@@ -61,9 +61,9 @@
               </span>
             </h6>
 
-            <div class="row  d-flex flex-wrap mt-4">
+            <div class="row d-flex flex-wrap mt-4">
               <div class="" v-for="ticket in event.tickets" :key="ticket.id">
-                <div class="card ">
+                <div class="card">
                   <div class="col">
                     <p>
                       <strong>{{ ticket.ticket_name }}</strong>
@@ -90,16 +90,27 @@
                 <p>currency {{ event.tickets.price_currency }}</p>
               </div>
 
-              <button
-                class="ticket-btn btn-3"
-                style="margin-top: 25px; font-size: medium; width: 200px"
-              >
-                <span>ADD TO CART</span>
-              </button>
+              <div class="control">
+                <div class="input-group">
+                  <input
+                    type="number"
+                    min="1"
+                    v-model="quantity"
+                    class="input"
+                  />
+                </div>
+                <div
+                  @click="addToCart"
+                  class="ticket-btn btn-3"
+                  style="margin-top: 25px; font-size: medium"
+                >
+                  ADD TO CART
+                </div>
+              </div>
               <a
                 role="button"
                 href="/checkout"
-                class="ticket-btn btn-3"
+                class="ticket-btn btn btn-3"
                 style="margin-top: 25px; font-size: medium; width: 200px"
               >
                 <span>QUICK BUY</span>
@@ -117,25 +128,31 @@
 
 <script>
 import axios from "axios";
+import { toast } from "bulma-toast";
 import Navbar from "@/components/Landingpage/NavBar.vue";
 
 export default {
   components: {
     Navbar,
   },
+
   props: ["id"],
+
   data() {
     return {
-      tickets: [],
+      ticket: {},
+      quantity: 1,
     };
   },
+
   mounted() {
     document.title = "Get Ticket";
     // Fetch tasks on page load
     this.$store.dispatch("getTickets", this.id);
     this.$store.dispatch("getEventDetails", this.id);
-    this.getData();
+    // this.getData();
   },
+
   computed: {
     event() {
       return this.$store.state.event;
@@ -144,29 +161,53 @@ export default {
     //   return this.$store.getters.getTickets;
     // },
   },
+
   methods: {
-    getData() {
-      axios
-        .get("/stores/event/public/")
-        .then((response) => {
-          this.events = response.data;
-        })
-        .catch((error) => {
-          // log the error
-          console.log(error);
-        });
+    addToCart() {
+      // console.log('this.quantity');
+      console.log("add to cart");
+      if (isNaN(this.quantity) || this.quantity < 1) {
+        this.quantity = 1;
+      }
+      const item = {
+        ticket: this.ticket,
+        quantity: this.quantity,
+      };
+
+      this.$store.commit("addToCart", item);
+
+      // showing toast image
+      toast({
+        message: `Ticket added to cart`,
+        type: "bg-success",
+        duration: 2000,
+        position: "bottom-right",
+        pauseOnHover: true,
+        dismissible: true,
+      });
     },
-    getTicket() {
-      axios
-        .get("/stores/event/public/")
-        .then((response) => {
-          this.tickets = response.data;
-        })
-        .catch((error) => {
-          // log the error
-          console.log(error);
-        });
-    },
+    // getData() {
+    //   axios
+    //     .get("/stores/event/public/")
+    //     .then((response) => {
+    //       this.events = response.data;
+    //     })
+    //     .catch((error) => {
+    //       // log the error
+    //       console.log(error);
+    //     });
+    // },
+    // getTicket() {
+    //   axios
+    //     .get("/stores/event/public/")
+    //     .then((response) => {
+    //       this.tickets = response.data;
+    //     })
+    //     .catch((error) => {
+    //       // log the error
+    //       console.log(error);
+    //     });
+    // },
   },
 };
 </script>
