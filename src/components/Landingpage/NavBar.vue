@@ -75,11 +75,11 @@
               >
                 <i class="fa-regular fa-chart-line-up"></i>
                 <router-link to="/events" id="routed">
-                <p style="font-size: 20px">Start selling with us</p>
-                <p style="font-size: 15px">
-                  Begin your e-commerce journey with our simple to use,
-                  feature-packed dashboard and marketplace.
-                </p>
+                  <p style="font-size: 20px">Start selling with us</p>
+                  <p style="font-size: 15px">
+                    Begin your e-commerce journey with our simple to use,
+                    feature-packed dashboard and marketplace.
+                  </p>
                 </router-link>
               </ul>
             </li>
@@ -125,15 +125,22 @@
                   <router-link to="/" class="dropdown-item">LOGOUT</router-link>
                 </template>
                 <template v-else>
-                  <router-link to="/" class="dropdown-item"
+                  <router-link to="/login" class="dropdown-item"
                     >LOGIN</router-link
                   >
                 </template>
-
               </ul>
             </li>
           </ul>
-          <i class="fa-solid fa-cart-shopping" style="margin-left: 15px"></i>
+          <li>
+            <a href="/cart">
+              <i
+                class="fa-solid fa-cart-shopping"
+                style="margin-left: 15px"
+              ></i>
+              {{ cartTotalLength }}
+            </a>
+          </li>
           <a
             name=""
             id="whatsapp"
@@ -164,7 +171,6 @@
       </div>
     </nav>
     <router-view :key="$route.name" />
-
   </div>
 </template>
 
@@ -228,7 +234,7 @@
     }
   }
 }
-#routed{
+#routed {
   color: #292825;
   text-decoration: none;
 }
@@ -236,8 +242,29 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: "Navbar",
   components: {},
+  data() {
+    return {
+      cart: {
+        items: [],
+      },
+    };
+  },
+  mounted() {
+    this.$store.state.cart;
+  },
+  computed: {
+    cartTotalLength() {
+      let totalLength = 0;
+
+      for (let i = 0; i < this.cart.items.length; i++) {
+        totalLength += this.cart.items[i].quantity;
+      }
+
+      return totalLength;
+    },
+  },
 };
 </script>
 

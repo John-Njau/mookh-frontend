@@ -7,6 +7,7 @@ import UpdateBuyerView from "../views/Profile/UpdateBuyerView.vue";
 import BuyerProfile from "../views/Profile/BuyerProfileView.vue";
 
 import Checkout from "../views/Tickets/Checkout.vue";
+import CartView from "../views/Tickets/CartView.vue";
 
 import Slider from "../views/Profile/slider.vue";
 
@@ -43,6 +44,11 @@ const routes = [
     meta: {
       requireLogin: true,
     },
+  },
+  {
+path: "/cart",
+name: "cart",
+component: CartView,
   },
   {
     path:"/checkout",
