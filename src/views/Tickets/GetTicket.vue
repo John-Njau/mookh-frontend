@@ -61,35 +61,46 @@
               </span>
             </h6>
 
-            <div class="row d-flex flex-wrap mt-4">
-              <div class="" v-for="ticket in event.tickets" :key="ticket.id">
-                <div class="card">
-                  <div class="col">
-                    <p>
-                      <strong>{{ ticket.ticket_name }}</strong>
-                    </p>
-                    <p>{{ ticket.ticket_price }}</p>
-                    <p>{{ ticket.prices }}</p>
-                    <p>
-                      {{ ticket.prices.price_currency }}
-                      {{ ticket.prices.price }}
-                    </p>
-                    <h6>Valid from</h6>
-                    <p>
-                      {{ ticket.start_at | date }} - {{ ticket.end_at | date }}
-                    </p>
-                    <p>Starts at:<br />{{ ticket.start_at | date }}</p>
+            <div class="row mt-4">
+              <div class="d-flex">
+                <div class="" v-for="ticket in tickets" :key="ticket.id">
+                  <div class="card w-100 m-2">
+                    <div class="col m-2">
+                      <p>
+                        <strong>{{ ticket.ticket_name }}</strong>
+                      </p>
+                      <!-- ticket_id -->
+                      <!-- <p>{{ ticket.id }}</p>  -->
+                      <p>{{ ticket.prices }}</p>
+                      <p>
+                        {{ ticket.price_currency }}
+                        {{ ticket.price }}
+                      </p>
+                      <h6>Valid</h6>
+                      <p>
+                        {{ ticket.start_at | date }} -
+                        {{ ticket.end_at | date }}
+                      </p>
+                      <p>
+                        <span class="h6">Starts at:</span> <br />{{
+                          ticket.start_at | date
+                        }}
+                      </p>
+                    </div>
                   </div>
+                  <br />
                 </div>
-                <br />
+              </div>
+              <div class="totals">
+                <p>
+                  <span class="h6 me-5">SUBTOTAL</span>
+                  <span class="h6 ms-5">Currency</span>
+                </p>
+                <h6></h6>
+                <!-- <p>currency {{ ticket.price_currency }}</p> -->
               </div>
             </div>
             <div>
-              <div class="totals">
-                <h6>SUBTOTAL</h6>
-                <p>currency {{ event.tickets.price_currency }}</p>
-              </div>
-
               <div class="control">
                 <div class="input-group">
                   <input
@@ -99,6 +110,10 @@
                     class="input"
                   />
                 </div>
+
+                <div></div>
+              </div>
+              <div class="d-flex">
                 <div
                   @click="addToCart"
                   class="ticket-btn btn-3"
@@ -106,17 +121,34 @@
                 >
                   ADD TO CART
                 </div>
+                <div>
+                  <a
+                    role="button"
+                    href="/checkout"
+                    class="ticket-btn btn btn-3"
+                    style="margin-top: 25px; font-size: medium; width: 200px"
+                  >
+                    <span>QUICK BUY</span>
+                  </a>
+                </div>
+                <div>
+                  <a
+                    role="button"
+                    href="https://api.whatsapp.com/send/?phone=%2B14155238886&text=join+surface-send&type=phone_number&app_absent=0"
+                    class="ticket-btn btn btn-3"
+                    style="margin-top: 25px; font-size: medium; width: 200px"
+                  >
+                    <span>Buy via Whatsapp</span>
+                  </a>
+                </div>
               </div>
-              <a
-                role="button"
-                href="/checkout"
-                class="ticket-btn btn btn-3"
-                style="margin-top: 25px; font-size: medium; width: 200px"
-              >
-                <span>QUICK BUY</span>
-              </a>
             </div>
+            <!-- <p>
+  {{tickets[1].prices.price}}
+    {{tickets[1].prices.price_currency}}
 
+
+</p> -->
             <!-- {{ event.tickets }} -->
           </div>
         </div>
@@ -140,7 +172,7 @@ export default {
 
   data() {
     return {
-      ticket: {},
+      // ticket: {},
       quantity: 1,
     };
   },
@@ -157,9 +189,13 @@ export default {
     event() {
       return this.$store.state.event;
     },
-    // tickets() {
-    //   return this.$store.getters.getTickets;
-    // },
+    tickets() {
+      return this.$store.state.tickets.tickets;
+    },
+    prices() {
+      return this.$store.state.tickets.tickets.prices;
+      // ticket.prices
+    },
   },
 
   methods: {
@@ -212,11 +248,11 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ticket-btn {
   background-color: #ffc107;
   color: #fff;
-  border: 2px solid rgb(23, 23, 23, 0.5);
+  border: 2px solid rgb(23, 23, 23, 0.7);
   border-radius: 1px;
   padding: 5px;
   font-size: medium;

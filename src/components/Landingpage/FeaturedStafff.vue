@@ -1,13 +1,18 @@
 <template>
   <div class="dec">
     <div class="card-deck" v-for="event in events.results" :key="event.id">
-      <div class="card">
-        <img class="card-img-top" :src="event.event_poster" alt="" />
-        <div class="card-body">
-          <h6 style="font-size: medium">{{ event.event_name }}</h6>
-          <p class="">{{ event.event_venue }}</p>
+      <router-link
+        :to="{ name: 'tickets', params: { id: event.id } }"
+        id="link"
+      >
+        <div class="card">
+          <img class="card-img-top" :src="event.event_poster" alt="" />
+          <div class="card-body">
+            <h6 style="font-size: medium">{{ event.event_name }}</h6>
+            <p class="">{{ event.event_venue }}</p>
+          </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -63,6 +68,10 @@ export default {
       width: 100%;
       border-radius: 20px 20px 0px 0px;
     }
+  }
+  #link{
+    text-decoration: none;    
+    color: black;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
 <footer>
-    <h6>TERMS OF SERVICE <span >PRIVACY POLICY</span> <span class="foot">&copy; 2018 MOOKH.ALL RIGHTS RESERVED</span></h6>
+    <h6>TERMS OF SERVICE <span >PRIVACY POLICY</span> <span class="foot">&copy; 2022 MOOKH.ALL RIGHTS RESERVED</span></h6>
 </footer>
 </template>
 

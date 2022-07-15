@@ -154,7 +154,7 @@
     <footer class="page-footer font-small blue fixed-bottom">
       <!-- Copyright -->
       <div class="footer-copyright text-center py-3">
-        © 2018 MOOKH. ALL RIGHTS RESERVED
+        © 2022 MOOKH. ALL RIGHTS RESERVED
       </div>
       <!-- Copyright -->
     </footer>
