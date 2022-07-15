@@ -1,5 +1,38 @@
 <template>
   <div>
+      <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Ninth navbar example">
+    <div class="container-xl">
+      <a class="navbar-brand" href="#">Container XL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample07XL">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07XL">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav> -->
     <nav
       class="navbar navbar-expand-lg"
       style="
@@ -21,8 +54,9 @@
             padding-right: 25px;
           "
         >
-          <a class="navbar-brand" href="/">mookh.</a>
+          <a class="navbar-brand text-dark bold" href="/">mookh.</a>
         </button>
+        
 
         <button
           class="navbar-toggler"
@@ -33,7 +67,8 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon text-dark"></span>
+         
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <input
@@ -122,7 +157,9 @@
                   <router-link to="/buyerprofile" class="dropdown-item"
                     >PROFILE</router-link
                   >
-                  <router-link to="/login" class="dropdown-item">LOGOUT</router-link>
+                  <router-link to="/login" class="dropdown-item"
+                    >LOGOUT</router-link
+                  >
                 </template>
                 <template v-else>
                   <router-link to="/login" class="dropdown-item"
@@ -132,13 +169,13 @@
               </ul>
             </li>
           </ul>
-          <li>
-            <a href="/cart">
+          <li class="list-style-none">
+            <a href="/cart" class="cart">
               <i
                 class="fa-solid fa-cart-shopping"
                 style="margin-left: 15px"
               ></i>
-              {{ cartTotalLength }}
+              ({{ cartTotalLength }})
             </a>
           </li>
           <a
@@ -166,7 +203,7 @@
                 fill="#FFF"
                 d="M219.033 37.668C195.316 13.254 162.531 0 129.048 0C57.898 0 .698 57.897 1.395 128.35c0 22.322 6.278 43.947 16.742 63.478L0 258.096l67.663-17.439c18.834 10.464 39.76 15.347 60.688 15.347c70.453 0 127.653-57.898 127.653-128.35c0-34.181-13.254-66.269-36.97-89.986ZM129.048 234.38c-18.834 0-37.668-4.882-53.712-14.648l-4.185-2.093l-40.458 10.463l10.463-39.76l-2.79-4.186C7.673 134.63 22.322 69.058 72.546 38.365c50.224-30.692 115.097-16.043 145.79 34.181c30.692 50.224 16.043 115.097-34.18 145.79c-16.045 10.463-35.576 16.043-55.108 16.043Zm61.385-77.428l-7.673-3.488s-11.16-4.883-18.136-8.371c-.698 0-1.395-.698-2.093-.698c-2.093 0-3.488.698-4.883 1.396c0 0-.697.697-10.463 11.858c-.698 1.395-2.093 2.093-3.488 2.093h-.698c-.697 0-2.092-.698-2.79-1.395l-3.488-1.395c-7.673-3.488-14.648-7.674-20.229-13.254c-1.395-1.395-3.488-2.79-4.883-4.185c-4.883-4.883-9.766-10.464-13.253-16.742l-.698-1.395c-.697-.698-.697-1.395-1.395-2.79c0-1.395 0-2.79.698-3.488c0 0 2.79-3.488 4.882-5.58c1.396-1.396 2.093-3.488 3.488-4.883c1.395-2.093 2.093-4.883 1.395-6.976c-.697-3.488-9.068-22.322-11.16-26.507c-1.396-2.093-2.79-2.79-4.883-3.488H83.01c-1.396 0-2.79.698-4.186.698l-.698.697c-1.395.698-2.79 2.093-4.185 2.79c-1.395 1.396-2.093 2.79-3.488 4.186c-4.883 6.278-7.673 13.951-7.673 21.624c0 5.58 1.395 11.161 3.488 16.044l.698 2.093c6.278 13.253 14.648 25.112 25.81 35.575l2.79 2.79c2.092 2.093 4.185 3.488 5.58 5.58c14.649 12.557 31.39 21.625 50.224 26.508c2.093.697 4.883.697 6.976 1.395h6.975c3.488 0 7.673-1.395 10.464-2.79c2.092-1.395 3.487-1.395 4.882-2.79l1.396-1.396c1.395-1.395 2.79-2.092 4.185-3.487c1.395-1.395 2.79-2.79 3.488-4.186c1.395-2.79 2.092-6.278 2.79-9.765v-4.883s-.698-.698-2.093-1.395Z"
               />
-              </svg>
+            </svg>
           </a>
         </div>
       </div>
@@ -215,10 +252,14 @@
 .fa-sun {
   color: #f39c12;
 }
+
 #whatsapp {
   background-color: #fff;
   border: none;
   padding-left: 1.1vw;
+  margin-left: 15px;
+  height: 40px;
+  width: 40px;
 
   :hover {
     background-color: #f1c40f !important;
@@ -239,6 +280,19 @@
   color: #292825;
   text-decoration: none;
 }
+.cart {
+  text-decoration: none;
+  color: #292825;
+  font-size: medium;
+  font-weight: 400;
+  margin-left: 15px;
+  :hover {
+    color: #f1c40f;
+  }
+}
+.list-style-none {
+  list-style: none;
+}
 </style>
 
 <script>
@@ -254,6 +308,7 @@ export default {
   },
   mounted() {
     this.$store.state.cart;
+    this.$store.state.isAuthenticated;
   },
   computed: {
     cartTotalLength() {

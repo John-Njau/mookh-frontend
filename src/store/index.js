@@ -12,6 +12,7 @@ const state = {
   isAuthenticated: false,
   token: '',
   tickets: [],
+  prices:[],
   event: {},
   isLoading: false,
   
@@ -40,6 +41,17 @@ const actions = {
         console.log(error);
       });
   },
+  getPrices({ commit }, payload) {
+    axios
+      .get(`/stores/event/public/${payload}/`)
+      .then((response) => {
+        commit("SET_PRICES", response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 };
 
 const mutations = {
@@ -61,7 +73,7 @@ const mutations = {
 
   addToCart(state, item) {
     const exists = state.cart.items.filter(
-      (i) => i.ticket.id === item.ticket.id
+      (i) => i.tickets.id === item.tickets.id
     );
 
     if (exists.length > 0) {
@@ -103,6 +115,10 @@ const mutations = {
     state.event = event;
     state.isAuthenticated = true;
   },
+  SET_PRICES(state, prices) {
+    state.prices = prices;
+    state.isAuthenticated = true;
+  }
 };
 
 const getters = {};

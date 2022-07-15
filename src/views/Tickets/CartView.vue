@@ -36,7 +36,7 @@
         <strong>${{ cartTotalPrice.toFixed(2) }}</strong
         >, {{ cartTotalLength }} items
         <hr />
-        <router-link to="/checkout" class="button is-dark">
+        <router-link to="/checkout" id="proceed" class="btn btn-sm btn-dark">
           Proceed to Checkout
         </router-link>
       </div>
@@ -88,3 +88,14 @@ export default {
   },
 };
 </script>
+<style scoped>
+#proceed { 
+/* background: #ff5a5f; */
+text-decoration: none;
+/* color: black;
+ */
+ color: #dbca12;
+
+}
+
+</style>
