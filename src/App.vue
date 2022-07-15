@@ -44,4 +44,19 @@ export default {
 <style >
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons");
 @import "~bootstrap/dist/css/bootstrap.css";
+
+#app{
+  font-family: 'Roboto', sans-serif;
+  /* font-family: 'poppins' , sans-serif; */
+  font-size: 14px;
+  color: #333;
+  /* background: #fafafa; */
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+
 </style>

@@ -26,12 +26,12 @@
                     style="padding-left:5px; padding-left:5px;width:5px padding-top:15px;"
                   >
                     <h5 style="font-size: medium">{{ event.day }}</h5>
-                    <h3 style="font-weight: 600">{{ event.date }}</h3>
+                    <h5>{{event.start_date | date}}</h5>
                     <h5 style="font-size: medium">{{ event.month }}</h5>
                   </div>
                   <div class="col text-center" style="padding-top: 20px">
                     <h2>
-                      <strong>{{ event.name }}</strong>
+                      <strong>{{ event.event_name }}</strong>
                     </h2>
                   </div>
                 </div>
