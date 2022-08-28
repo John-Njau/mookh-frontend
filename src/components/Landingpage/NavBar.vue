@@ -54,7 +54,7 @@
             padding-right: 25px;
           "
         >
-          <a class="navbar-brand text-dark bold" href="/">mookh.</a>
+          <a class="navbar-brand text-dark bold" href="https://mookh.com/">mookh.</a>
         </button>
         
 

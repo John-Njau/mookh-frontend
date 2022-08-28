@@ -53,7 +53,7 @@ export default {
     return {};
   },
   mounted() {
-    document.title = "Home - Mookh";
+    document.title = "MOOKH: Making Commerce Social";
   },
 };
 </script>
