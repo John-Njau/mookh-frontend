@@ -46,7 +46,7 @@
     "cypress": "^9.7.0",
     "jest": "^27.0.5",
     "jquery": "^3.6.0",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.3",
     "popper.js": "^1.16.1",
     "sass-loader": "^13.0.2",
     "vue-loader-v15": "^0.0.1-security",
